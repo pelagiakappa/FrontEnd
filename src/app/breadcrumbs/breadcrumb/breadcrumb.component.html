@@ -1,0 +1,9 @@
+<a *ngIf="breadcrumb === 'Home'; else otherBreadcrumbs"
+   routerLink="/" title="{{breadcrumb}}">{{breadcrumb}}
+</a>
+<ng-template #otherBreadcrumbs>
+  <a routerLink="/{{breadcrumb}}" title="{{breadcrumb}}">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    {{breadcrumb}}
+  </a>
+</ng-template>

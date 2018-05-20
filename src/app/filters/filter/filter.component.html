@@ -1,0 +1,14 @@
+<div class="row col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-1">
+  <form>
+    <h4>
+      <span>{{filter.title}}</span>
+    </h4>
+    <div class="{{inputType}} col-xs-0 col-sm-0 col-md-0 col-lg-7"
+         *ngFor="let value of filter.values">
+      <label title="{{value}}" (click)="onClickFilter(value)">
+        <input type="{{inputType}}" value="{{value}}"
+               name="radioFilter">{{value}}
+      </label>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,15 @@
+<nav class="navbar navbar-left">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <h2>Filters</h2>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <app-filter
+      *ngFor="let radioFilter of radioFilters"
+      [filter]="radioFilter" [inputType]="'radio'"></app-filter>
+    <app-filter
+      *ngFor="let checkboxFilter of checkboxFilters"
+      [filter]="checkboxFilter" [inputType]="'checkbox'"></app-filter>
+  </div>
+</nav>

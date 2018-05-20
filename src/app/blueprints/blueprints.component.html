@@ -1,0 +1,8 @@
+<div class="col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-1">
+  <h2>
+    <span>{{category}}</span>
+  </h2>
+  <br>
+  <app-blueprint *ngFor="let blueprint of blueprints"
+                 [blueprint]="blueprint"></app-blueprint>
+</div>

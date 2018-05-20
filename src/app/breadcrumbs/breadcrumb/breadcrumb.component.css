@@ -1,0 +1,8 @@
+a {
+  text-decoration: none;
+  color: dodgerblue;
+}
+
+a:hover {
+  color: #18468f;
+}
