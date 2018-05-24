@@ -2,7 +2,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
-import {RouterModule, Routes} from '@angular/router';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
@@ -23,13 +22,13 @@ import {BreadcrumbsComponent} from './breadcrumbs/breadcrumbs.component';
 import {BreadcrumbComponent} from './breadcrumbs/breadcrumb/breadcrumb.component';
 import {BreadcrumbsService} from './breadcrumbs/breadcrumbs.service';
 import {SuggestionsComponent} from './search-bar/suggestions/suggestions.component';
-import {ServerService} from './server.service';
-
-const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: ':category', component: CategorySelectedComponent},
-  {path: ':category/:filter', component: CategorySelectedComponent}
-];
+import {AppRoutingModule} from './app-routing.module';
+import {DataStorageService} from './shared/data-storage.service';
+import {SignupComponent} from './auth/signup/signup.component';
+import {SigninComponent} from './auth/signin/signin.component';
+import {AuthService} from './auth/auth.service';
+import {AuthGuard} from './auth/auth-guard.service';
+import {DropdownDirective} from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -47,15 +46,26 @@ const appRoutes: Routes = [
     FooterComponent,
     BreadcrumbsComponent,
     BreadcrumbComponent,
-    SuggestionsComponent
+    SuggestionsComponent,
+    SignupComponent,
+    SigninComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
-  providers: [CategoriesService, FiltersService, BlueprintsService, BreadcrumbsService, ServerService],
+  providers: [
+    CategoriesService,
+    FiltersService,
+    BlueprintsService,
+    BreadcrumbsService,
+    DataStorageService,
+    AuthService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

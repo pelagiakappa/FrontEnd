@@ -1,22 +1,48 @@
 <nav class="navbar navbar-default myclass">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand"
-         routerLink="/" title="Home">Market Place</a>
+      <a class="navbar-brand" routerLink="/" title="Home">
+        <span class="glyphicon glyphicon-home"></span>
+        Market Place
+      </a>
     </div>
     <app-search-bar *ngIf="!homeCategory"
                     class="navbar-brand col-xs-11 col-sm-11 col-md-11 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
     </app-search-bar>
-    <div
-      class="navbar-default col-xs-2 col-sm-2 col-md-2 col-lg-11 col-xs-offset-10 col-sm-offset-10 col-md-offset-10 col-lg-offset-1">
-      <ul class="nav navbar-nav navbar-right">
-        <a href="#" title="My Favorites">My Blueprints
-          <span *ngIf="!clickedStar"
-                class="glyphicon glyphicon-heart-empty"></span>
-          <span *ngIf="clickedStar"
-                class="glyphicon glyphicon-heart"></span>
-        </a>
-      </ul>
-    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <ng-template [ngIf]="!authService.isAuthenticated()">
+        <li routerLinkActive="active">
+          <a routerLink="/signup">Register</a></li>
+        <li routerLinkActive="active">
+          <a routerLink="/signin">Login</a></li>
+      </ng-template>
+      <ng-template [ngIf]="authService.isAuthenticated()">
+        <li routerLinkActive="active">
+          <a style="cursor: pointer;"
+             title="Your Saved Items">Your Saved Items
+            <span *ngIf="!clickedStar"
+                  class="glyphicon glyphicon-heart-empty"></span>
+            <span *ngIf="clickedStar"
+                  class="glyphicon glyphicon-heart"></span>
+          </a></li>
+        <li class="dropdown" appDropdown>
+          <a style="cursor: pointer;"
+             class="dropdown-toggle" role="button">Your Account
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a style="cursor: pointer;"
+                   title="Your Saved Items">Your Saved Items</a></li>
+            <li><a style="cursor: pointer;"
+                   title="Your Orders">Your Orders</a></li>
+            <li><a style="cursor: pointer;"
+                   title="Your Recommendations">Your Recommendations</a>
+            </li>
+            <li><a style="cursor: pointer;" title="Logout"
+                   (click)="onLogout()">Logout</a></li>
+          </ul>
+        </li>
+      </ng-template>
+    </ul>
   </div>
 </nav>

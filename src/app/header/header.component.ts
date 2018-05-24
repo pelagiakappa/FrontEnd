@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 
 import {BlueprintsService} from '../blueprints/blueprints.service';
 import {CategoriesService} from '../categories/categories.service';
+import {AuthService} from '../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,8 @@ export class HeaderComponent implements OnInit {
   homeCategory: boolean;
 
   constructor(private blueprintsService: BlueprintsService,
-              private categoriesService: CategoriesService) {
+              private categoriesService: CategoriesService,
+              public authService: AuthService) {
   }
 
   ngOnInit() {
@@ -28,6 +30,10 @@ export class HeaderComponent implements OnInit {
         this.homeCategory = flag;
       }
     );
+  }
+
+  onLogout() {
+    this.authService.logout();
   }
 
 }

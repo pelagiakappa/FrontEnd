@@ -1,16 +1,17 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, DoCheck, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
 import {CategoriesService} from '../categories/categories.service';
+import {Category} from '../categories/category.module';
 
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.css']
 })
-export class SearchBarComponent implements OnInit {
+export class SearchBarComponent implements OnInit, DoCheck {
   @ViewChild('inputCategory') inputCategory: ElementRef;
-  categories: { type: string }[];
+  categories: Category[];
   keyDownFlag = false;
 
   constructor(private categoriesService: CategoriesService,
@@ -19,6 +20,9 @@ export class SearchBarComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngDoCheck() {
     this.categories = this.categoriesService.getCategories();
   }
 

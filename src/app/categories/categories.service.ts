@@ -1,25 +1,24 @@
 import {EventEmitter} from '@angular/core';
 
+import {Category} from './category.module';
+
 export class CategoriesService {
-  private categories = [
-    {
-      type: 'Weather'
-    },
-    {
-      type: 'Mobile'
-    },
-    {
-      type: 'Laptop'
-    },
-    {
-      type: 'Desktop'
-    },
-  ];
+  // private categories: Category[] = [
+  //   new Category('Weather'),
+  //   new Category('Mobile'),
+  //   new Category('Laptop'),
+  //   new Category('Desktop')
+  // ];
+  private categories: Category[];
 
   categoryHome = new EventEmitter<boolean>();
 
   getCategories() {
-    return this.categories.slice();
+    return this.categories;
+  }
+
+  setCategories(categories: Category[]) {
+    this.categories = categories;
   }
 
 }
