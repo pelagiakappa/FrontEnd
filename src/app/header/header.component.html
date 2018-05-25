@@ -32,8 +32,11 @@
           </a>
           <ul class="dropdown-menu">
             <li *ngFor="let blueprint of blueprintsSaved">
-              <a style="cursor: pointer;"
-                 title="{{blueprint}}">{{blueprint}}</a></li>
+              <a style="cursor: pointer;" title="{{blueprint}}"
+                 [routerLink]="['/details', blueprint]">
+                {{blueprint}}
+              </a>
+            </li>
           </ul>
         </li>
         <li class="dropdown" appDropdown>
