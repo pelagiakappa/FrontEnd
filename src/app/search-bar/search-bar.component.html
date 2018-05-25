@@ -1,23 +1,18 @@
-<div class="row">
-  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-7
-  col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-2">
-    <div class="input-group input-group-lg">
-      <input type="text" class="form-control"
-             placeholder="Search for category..."
-             title="Search for category..."
-             #inputCategory
-             (keydown.enter)="onSearchCategory()"
-             (keydown)="onKeyDown()"
-             list="suggestions">
-      <datalist id="suggestions" *ngIf="keyDownFlag">
-        <app-suggestions></app-suggestions>
-      </datalist>
-      <div class="input-group-btn">
-        <button class="btn btn-default" type="button" title="Search"
-                (click)="onSearchCategory()">
-          <i class="glyphicon glyphicon-search"></i>
-        </button>
-      </div>
-    </div>
+<div class="input-group input-group-lg">
+  <input type="text" class="form-control"
+         placeholder="Search for category..."
+         title="Search for category..."
+         #inputCategory
+         (keydown.enter)="onSearchCategory()"
+         (keydown)="onKeyDown()"
+         list="suggestions">
+  <datalist id="suggestions" *ngIf="keyDownFlag">
+    <app-suggestions></app-suggestions>
+  </datalist>
+  <div class="input-group-btn">
+    <button class="btn btn-default" type="button" title="Search"
+            (click)="onSearchCategory()">
+      <i class="glyphicon glyphicon-search"></i>
+    </button>
   </div>
 </div>
