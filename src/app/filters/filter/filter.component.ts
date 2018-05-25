@@ -19,11 +19,10 @@ export class FilterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.currentCategory = this.route.snapshot.params['category'];
-    this.previousFilter = this.route.snapshot.params['filter'];
     this.route.params
       .subscribe(
         (params: Params) => {
+          this.currentCategory = params['name'];
           this.previousFilter = params['filter'];
         }
       );

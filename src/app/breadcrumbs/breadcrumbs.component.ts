@@ -19,14 +19,11 @@ export class BreadcrumbsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.breadcrumbs = this.breadcrumbsService.getBreadcrumbs();
-    this.category = this.route.snapshot.params['category'];
-    this.breadcrumbs.push(this.category);
     this.route.params
       .subscribe(
         (params: Params) => {
           this.breadcrumbs = this.breadcrumbsService.getBreadcrumbs();
-          this.category = params['category'];
+          this.category = params['name'];
           this.breadcrumbs.push(this.category);
         }
       );

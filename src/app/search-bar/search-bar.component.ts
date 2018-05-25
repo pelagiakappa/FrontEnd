@@ -1,5 +1,5 @@
 import {Component, DoCheck, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
 
 import {CategoriesService} from '../categories/categories.service';
 import {Category} from '../categories/category.module';
@@ -15,8 +15,7 @@ export class SearchBarComponent implements OnInit, DoCheck {
   keyDownFlag = false;
 
   constructor(private categoriesService: CategoriesService,
-              private router: Router,
-              private route: ActivatedRoute) {
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -27,10 +26,9 @@ export class SearchBarComponent implements OnInit, DoCheck {
   }
 
   onSearchCategory() {
-    for (const categoryType of this.categories) {
-      if (categoryType.type.toUpperCase() === this.inputCategory.nativeElement.value.toUpperCase()) {
-        this.router.navigate([categoryType.type],
-          {relativeTo: this.route});
+    for (const categoryName of this.categories) {
+      if (categoryName.name.toUpperCase() === this.inputCategory.nativeElement.value.toUpperCase()) {
+        this.router.navigate(['/category', categoryName.name]);
       }
     }
   }

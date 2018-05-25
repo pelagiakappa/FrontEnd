@@ -7,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class CategoryComponent implements OnInit {
   @Input() categoryItem: {
-    type: string
+    name: string
   };
 
   constructor() {

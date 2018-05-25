@@ -5,13 +5,19 @@ import {HomeComponent} from './home/home.component';
 import {CategorySelectedComponent} from './categories/category/category-selected/category-selected.component';
 import {SignupComponent} from './auth/signup/signup.component';
 import {SigninComponent} from './auth/signin/signin.component';
+import {BlueprintDetailsComponent} from './blueprints/blueprint/blueprint-details/blueprint-details.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'signin', component: SigninComponent},
-  {path: ':category', component: CategorySelectedComponent},
-  {path: ':category/:filter', component: CategorySelectedComponent},
+  {
+    path: 'category/:name', component: CategorySelectedComponent,
+    children: [
+      {path: ':filter', redirectTo: 'category/:name'} // TODO
+    ]
+  },
+  {path: 'details/:blueprint', component: BlueprintDetailsComponent},
   {path: '**', redirectTo: '/'}
 ];
 

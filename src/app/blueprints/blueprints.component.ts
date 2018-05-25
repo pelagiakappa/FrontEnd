@@ -18,11 +18,10 @@ export class BlueprintsComponent implements OnInit {
 
   ngOnInit() {
     this.blueprints = this.blueprintsService.getBlueprints();
-    this.category = this.route.snapshot.params['category'];
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.category = params['category'];
+          this.category = params['name'];
         }
       );
   }

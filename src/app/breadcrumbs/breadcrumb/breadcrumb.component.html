@@ -2,7 +2,7 @@
    routerLink="/" title="{{breadcrumb}}">{{breadcrumb}}
 </a>
 <ng-template #otherBreadcrumbs>
-  <a routerLink="/{{breadcrumb}}" title="{{breadcrumb}}">
+  <a [routerLink]="['/category', breadcrumb]" title="{{breadcrumb}}">
     <span class="glyphicon glyphicon-chevron-right"></span>
     {{breadcrumb}}
   </a>

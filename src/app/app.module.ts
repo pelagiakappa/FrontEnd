@@ -29,6 +29,7 @@ import {SigninComponent} from './auth/signin/signin.component';
 import {AuthService} from './auth/auth.service';
 import {AuthGuard} from './auth/auth-guard.service';
 import {DropdownDirective} from './shared/dropdown.directive';
+import {BlueprintDetailsComponent} from './blueprints/blueprint/blueprint-details/blueprint-details.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {DropdownDirective} from './shared/dropdown.directive';
     SuggestionsComponent,
     SignupComponent,
     SigninComponent,
-    DropdownDirective
+    DropdownDirective,
+    BlueprintDetailsComponent
   ],
   imports: [
     BrowserModule,
