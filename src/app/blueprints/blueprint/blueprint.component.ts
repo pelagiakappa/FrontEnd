@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 import {BlueprintsService} from '../blueprints.service';
+import {AuthService} from '../../auth/auth.service';
 
 @Component({
   selector: 'app-blueprint',
@@ -9,17 +11,24 @@ import {BlueprintsService} from '../blueprints.service';
 })
 export class BlueprintComponent implements OnInit {
   @Input() blueprint: string;
-  clickedStar = false;
+  clickedHeart = false;
 
-  constructor(private blueprintsService: BlueprintsService) {
+  constructor(private blueprintsService: BlueprintsService,
+              private authService: AuthService,
+              private router: Router) {
   }
 
   ngOnInit() {
   }
 
-  onClickStar() {
-    this.clickedStar = !this.clickedStar;
-    this.blueprintsService.starClicked.emit(true);
+  onClickHeart() {
+    if (this.authService.isAuthenticated()) {
+      this.clickedHeart = !this.clickedHeart;
+      this.blueprintsService.heartClicked.emit(true);
+    } else {
+      this.router.navigate(['/signin']);
+    }
+
   }
 
 }

@@ -10,7 +10,7 @@ import {AuthService} from '../auth/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  clickedStar = false;
+  clickedHeart = false;
   homeCategory: boolean;
 
   constructor(private blueprintsService: BlueprintsService,
@@ -19,9 +19,9 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.blueprintsService.starClicked.subscribe(
+    this.blueprintsService.heartClicked.subscribe(
       (flag: boolean) => {
-        this.clickedStar = flag;
+        this.clickedHeart = flag;
       }
     );
 
