@@ -24,7 +24,7 @@ export class BlueprintComponent implements OnInit {
   onClickHeart() {
     if (this.authService.isAuthenticated()) {
       this.clickedHeart = !this.clickedHeart;
-      this.blueprintsService.heartClicked.emit(true);
+      this.blueprintsService.setSavedBlueprints(this.blueprint);
     } else {
       this.router.navigate(['/signin']);
     }

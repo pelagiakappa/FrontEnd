@@ -12,25 +12,33 @@
     <ul class="nav navbar-nav navbar-right">
       <ng-template [ngIf]="!authService.isAuthenticated()">
         <li routerLinkActive="active">
-          <a routerLink="/signup" class="navbar-link">Register</a>
+          <a routerLink="/signup" class="navbar-link"
+             title="Register">Register</a>
         </li>
         <li routerLinkActive="active">
-          <a routerLink="/signin" class="navbar-link">Login</a>
+          <a routerLink="/signin" class="navbar-link"
+             title="Login">Login</a>
         </li>
       </ng-template>
       <ng-template [ngIf]="authService.isAuthenticated()">
-        <li routerLinkActive="active">
-          <a style="cursor: pointer;" class="navbar-link"
-             title="Your Saved Items">Your Saved Items
-            <span *ngIf="!clickedHeart"
+        <li class="dropdown" appDropdown>
+          <a style="cursor: pointer;" class="dropdown-toggle"
+             title="Your Saved Items" role="button">Your Saved Items
+            <span *ngIf="blueprintsSaved[0] === 'You haven\'t saved any items yet.'; else bpSaved"
                   class="glyphicon glyphicon-heart-empty"></span>
-            <span *ngIf="clickedHeart"
-                  class="glyphicon glyphicon-heart"></span>
+            <ng-template #bpSaved>
+              <span class="glyphicon glyphicon-heart"></span>
+            </ng-template>
           </a>
+          <ul class="dropdown-menu">
+            <li *ngFor="let blueprint of blueprintsSaved">
+              <a style="cursor: pointer;"
+                 title="{{blueprint}}">{{blueprint}}</a></li>
+          </ul>
         </li>
         <li class="dropdown" appDropdown>
-          <a style="cursor: pointer;"
-             class="dropdown-toggle" role="button">Your Account
+          <a style="cursor: pointer;" class="dropdown-toggle"
+             title="Your Account" role="button">Your Account
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
