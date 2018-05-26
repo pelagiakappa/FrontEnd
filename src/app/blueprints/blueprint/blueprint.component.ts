@@ -11,7 +11,7 @@ import {AuthService} from '../../auth/auth.service';
 })
 export class BlueprintComponent implements OnInit {
   @Input() blueprint: string;
-  clickedHeart = false;
+  clickedHeart: boolean;
 
   constructor(private blueprintsService: BlueprintsService,
               private authService: AuthService,
@@ -19,6 +19,13 @@ export class BlueprintComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.blueprintsService.getSavedBlueprints().forEach(
+      (bp: string) => {
+        if (bp === this.blueprint) {
+          this.clickedHeart = true;
+        }
+      }
+    );
   }
 
   onClickHeart() {
