@@ -31,6 +31,8 @@ import {AuthGuard} from './auth/auth-guard.service';
 import {DropdownDirective} from './shared/dropdown.directive';
 import {BlueprintDetailsComponent} from './blueprints/blueprint/blueprint-details/blueprint-details.component';
 import {AccountComponent} from './account/account.component';
+import {FavoritesComponent} from './account/favorites/favorites.component';
+import {OrdersComponent} from './account/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import {AccountComponent} from './account/account.component';
     SigninComponent,
     DropdownDirective,
     BlueprintDetailsComponent,
-    AccountComponent
+    AccountComponent,
+    FavoritesComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
