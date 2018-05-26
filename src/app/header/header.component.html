@@ -17,24 +17,25 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <ng-template [ngIf]="!authService.isAuthenticated()">
-          <li routerLinkActive="active">
-            <a routerLink="/signup" class="navbar-link"
-               title="Register">Register</a>
-          </li>
-          <li routerLinkActive="active">
-            <a routerLink="/signin" class="navbar-link"
-               title="Login">Login</a>
-          </li>
+          <li><a class="navbar-link" style="cursor: pointer;"
+                 data-toggle="modal" data-target="#myModalSignup"
+                 title="Register">Register</a></li>
+          <li><a class="navbar-link" style="cursor: pointer;"
+                 data-toggle="modal" data-target="#myModalSignin"
+                 title="Login">
+            <span class="glyphicon glyphicon-log-in"></span>
+            Login</a></li>
         </ng-template>
         <ng-template [ngIf]="authService.isAuthenticated()">
           <li class="dropdown" appDropdown>
             <a style="cursor: pointer;" class="dropdown-toggle"
-               title="Your Saved Items" role="button">Your Saved Items
+               title="Your Saved Items" role="button">
               <span *ngIf="blueprintsSaved[0] === 'You haven\'t saved any items yet.'; else bpSaved"
                     class="glyphicon glyphicon-heart-empty"></span>
               <ng-template #bpSaved>
                 <span class="glyphicon glyphicon-heart"></span>
               </ng-template>
+              Your Saved Items
             </a>
             <ul class="dropdown-menu">
               <li *ngFor="let blueprint of blueprintsSaved">
@@ -47,26 +48,27 @@
           </li>
           <li class="dropdown" appDropdown>
             <a style="cursor: pointer;" class="dropdown-toggle"
-               title="Your Account" role="button">Your Account
-              <span class="caret"></span>
+               title="Your Account" role="button">
+              <span class="glyphicon glyphicon-user"></span>
+              Your Account<span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
               <li><a style="cursor: pointer;" title="Your Profile"
                      routerLink="/account">Your Profile</a></li>
               <li><a style="cursor: pointer;" title="Your Saved Items"
                      routerLink="/account/favorites">Your Saved Items
-              </a>
-              </li>
+              </a></li>
               <li><a style="cursor: pointer;" title="Your Orders"
                      routerLink="/account/orders">Your Orders</a></li>
               <li><a style="cursor: pointer;"
                      title="Your Ratings">Your Ratings</a></li>
               <li><a style="cursor: pointer;"
                      title="Your Recommendations">Your Recommendations
-              </a>
-              </li>
+              </a></li>
               <li><a style="cursor: pointer;" title="Logout"
-                     (click)="onLogout()">Logout</a></li>
+                     (click)="onLogout()">
+                <span class="glyphicon glyphicon-log-out"></span>
+                Logout</a></li>
             </ul>
           </li>
         </ng-template>
@@ -74,3 +76,74 @@
     </div>
   </div>
 </nav>
+
+<div class="modal fade" id="myModalSignup" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" type="button"
+                data-dismiss="modal">&times;
+        </button>
+        <h4 class="modal-title">Register</h4>
+      </div>
+      <form (ngSubmit)="onSignup(f)" #f="ngForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="emailSignup">Email</label>
+            <input type="email" id="emailSignup" name="email"
+                   ngModel class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="passwordSignup">
+              Password (at least 6 characters)</label>
+            <input type="password" id="passwordSignup" name="password"
+                   ngModel class="form-control">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="submit"
+                  (click)="onClick()">Sign Up
+          </button>
+          <button class="btn btn-default" type="button"
+                  data-dismiss="modal">Close
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="myModalSignin" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" type="button"
+                data-dismiss="modal">&times;
+        </button>
+        <h4 class="modal-title">Login</h4>
+      </div>
+      <form (ngSubmit)="onSignin(f)" #f="ngForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="emailSignin">Email</label>
+            <input type="email" id="emailSignin" name="email"
+                   ngModel class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="passwordSignin">Password</label>
+            <input type="password" id="passwordSignin" name="password"
+                   ngModel class="form-control">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="submit"
+                  (click)="onClick()">Sign In
+          </button>
+          <button class="btn btn-default" type="button"
+                  data-dismiss="modal">Close
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
