@@ -6,6 +6,7 @@ import {CategorySelectedComponent} from './categories/category/category-selected
 import {SignupComponent} from './auth/signup/signup.component';
 import {SigninComponent} from './auth/signin/signin.component';
 import {BlueprintDetailsComponent} from './blueprints/blueprint/blueprint-details/blueprint-details.component';
+import {AccountComponent} from './account/account.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
     ]
   },
   {path: 'details/:blueprint', component: BlueprintDetailsComponent},
+  {path: 'account', component: AccountComponent},
   {path: '**', redirectTo: '/'}
 ];
 
