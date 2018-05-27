@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import * as firebase from 'firebase';
 import * as $ from 'jquery';
@@ -6,6 +6,8 @@ import * as $ from 'jquery';
 @Injectable()
 export class AuthService {
   token: string;
+  successMessage = new EventEmitter<string>();
+  errorMessage = new EventEmitter<Error>();
 
   constructor(private router: Router,
               private route: ActivatedRoute) {
@@ -16,12 +18,27 @@ export class AuthService {
       .then(
         response => {
           console.log(response);
-          this.router.navigate([], {relativeTo: this.route});
+          this.successMessage.emit('You \'re successfully registered!');
 
+          $('.alert').fadeTo(2000, 500).slideUp(500, function () {
+            $(this).slideUp(500);
+          });
+
+          $('.modal').fadeTo(1000, 500).slideUp(500, function () {
+            $(this).slideUp(500);
+          })
+            .attr('aria-hidden', 'true')
+            .css('display', 'none');
+          $('.modal-backdrop').remove();
+
+          this.router.navigate([], {relativeTo: this.route});
         }
       )
       .catch(
-        error => console.log(error)
+        error => {
+          console.log(error);
+          this.errorMessage.emit(error);
+        }
       );
   }
 
@@ -30,6 +47,7 @@ export class AuthService {
       .then(
         response => {
           console.log(response);
+          this.successMessage.emit('You \'re successfully logged in!');
           firebase.auth().currentUser.getIdToken()
             .then(
               (token: string) => {
@@ -37,18 +55,25 @@ export class AuthService {
               }
             );
 
-          // to close the popup TODO
-          // $('.modal').removeClass('in');
-          // $('.modal').attr('aria-hidden', 'true');
-          // $('.modal').css('display', 'none');
-          // $('.modal-backdrop').remove();
-          // $('body').removeClass('modal-open');
+          $('.alert').fadeTo(2000, 500).slideUp(500, function () {
+            $(this).slideUp(500);
+          });
+
+          $('.modal').fadeTo(1000, 500).slideUp(500, function () {
+            $(this).slideUp(500);
+          })
+            .attr('aria-hidden', 'true')
+            .css('display', 'none');
+          $('.modal-backdrop').remove();
 
           this.router.navigate([], {relativeTo: this.route});
         }
       )
       .catch(
-        error => console.log(error)
+        error => {
+          console.log(error);
+          this.errorMessage.emit(error);
+        }
       );
   }
 

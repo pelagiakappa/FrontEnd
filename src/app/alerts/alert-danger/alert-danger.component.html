@@ -1,4 +1,5 @@
-<div class="alert alert-danger alert-dismissible">
+<div *ngIf="messageError"
+     class="alert alert-danger alert-dismissible text-center">
   <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
+  <strong>{{messageError}}</strong>
 </div>
