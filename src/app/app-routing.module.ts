@@ -3,8 +3,6 @@ import {Routes, RouterModule} from '@angular/router';
 
 import {HomeComponent} from './home/home.component';
 import {CategorySelectedComponent} from './categories/category/category-selected/category-selected.component';
-import {SignupComponent} from './auth/signup/signup.component';
-import {SigninComponent} from './auth/signin/signin.component';
 import {BlueprintDetailsComponent} from './blueprints/blueprint/blueprint-details/blueprint-details.component';
 import {AccountComponent} from './account/account.component';
 import {FavoritesComponent} from './account/favorites/favorites.component';
@@ -12,8 +10,6 @@ import {OrdersComponent} from './account/orders/orders.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'signup', component: SignupComponent},
-  {path: 'signin', component: SigninComponent},
   {
     path: 'category/:name', component: CategorySelectedComponent,
     children: [

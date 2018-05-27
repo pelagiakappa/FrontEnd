@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 
 import {BlueprintsService} from '../blueprints.service';
 import {AuthService} from '../../auth/auth.service';
@@ -14,8 +13,7 @@ export class BlueprintComponent implements OnInit {
   clickedHeart: boolean;
 
   constructor(private blueprintsService: BlueprintsService,
-              private authService: AuthService,
-              private router: Router) {
+              public authService: AuthService) {
   }
 
   ngOnInit() {
@@ -29,13 +27,8 @@ export class BlueprintComponent implements OnInit {
   }
 
   onClickHeart() {
-    if (this.authService.isAuthenticated()) {
-      this.clickedHeart = !this.clickedHeart;
-      this.blueprintsService.setSavedBlueprints(this.blueprint);
-    } else {
-      this.router.navigate(['/signin']);
-    }
-
+    this.clickedHeart = !this.clickedHeart;
+    this.blueprintsService.setSavedBlueprints(this.blueprint);
   }
 
 }

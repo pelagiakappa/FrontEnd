@@ -1,6 +1,4 @@
 import {Component, DoCheck, OnInit} from '@angular/core';
-import {NgForm} from '@angular/forms';
-import * as $ from 'jquery';
 
 import {BlueprintsService} from '../blueprints/blueprints.service';
 import {CategoriesService} from '../categories/categories.service';
@@ -34,26 +32,6 @@ export class HeaderComponent implements OnInit, DoCheck {
 
   onLogout() {
     this.authService.logout();
-  }
-
-  onSignup(form: NgForm) {
-    const email = form.value.email;
-    const password = form.value.password;
-    this.authService.signupUser(email, password);
-  }
-
-  onSignin(form: NgForm) {
-    const email = form.value.email;
-    const password = form.value.password;
-    this.authService.signinUser(email, password);
-  }
-
-  onClick() {
-    $('.modal').removeClass('in');
-    $('.modal').attr('aria-hidden', 'true');
-    $('.modal').css('display', 'none');
-    $('.modal-backdrop').remove();
-    $('body').removeClass('modal-open');
   }
 
 }
