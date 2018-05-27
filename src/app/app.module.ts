@@ -33,6 +33,11 @@ import {BlueprintDetailsComponent} from './blueprints/blueprint/blueprint-detail
 import {AccountComponent} from './account/account.component';
 import {FavoritesComponent} from './account/favorites/favorites.component';
 import {OrdersComponent} from './account/orders/orders.component';
+import {AlertsComponent} from './alerts/alerts.component';
+import {AlertSuccessComponent} from './alerts/alert-success/alert-success.component';
+import {AlertInfoComponent} from './alerts/alert-info/alert-info.component';
+import {AlertWarningComponent} from './alerts/alert-warning/alert-warning.component';
+import {AlertDangerComponent} from './alerts/alert-danger/alert-danger.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +62,12 @@ import {OrdersComponent} from './account/orders/orders.component';
     BlueprintDetailsComponent,
     AccountComponent,
     FavoritesComponent,
-    OrdersComponent
+    OrdersComponent,
+    AlertsComponent,
+    AlertSuccessComponent,
+    AlertInfoComponent,
+    AlertWarningComponent,
+    AlertDangerComponent
   ],
   imports: [
     BrowserModule,
