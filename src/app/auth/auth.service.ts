@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import * as firebase from 'firebase';
+import * as $ from 'jquery';
 
 @Injectable()
 export class AuthService {
@@ -15,7 +16,8 @@ export class AuthService {
       .then(
         response => {
           console.log(response);
-          this.router.navigate(['/']);
+          this.router.navigate([], {relativeTo: this.route});
+
         }
       )
       .catch(
@@ -34,7 +36,15 @@ export class AuthService {
                 this.token = token;
               }
             );
-          this.router.navigate(['/']);
+
+          // to close the popup TODO
+          // $('.modal').removeClass('in');
+          // $('.modal').attr('aria-hidden', 'true');
+          // $('.modal').css('display', 'none');
+          // $('.modal-backdrop').remove();
+          // $('body').removeClass('modal-open');
+
+          this.router.navigate([], {relativeTo: this.route});
         }
       )
       .catch(
