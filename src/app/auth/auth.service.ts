@@ -18,7 +18,7 @@ export class AuthService {
       .then(
         response => {
           console.log(response);
-          this.successMessage.emit('You \'re successfully registered!');
+          this.successMessage.emit('You are now registered!');
 
           $('.alert').fadeTo(2000, 500).slideUp(500, function () {
             $(this).slideUp(500);
@@ -47,7 +47,7 @@ export class AuthService {
       .then(
         response => {
           console.log(response);
-          this.successMessage.emit('You \'re successfully logged in!');
+          this.successMessage.emit('You have successfully logged in!');
           firebase.auth().currentUser.getIdToken()
             .then(
               (token: string) => {
@@ -59,12 +59,7 @@ export class AuthService {
             $(this).slideUp(500);
           });
 
-          $('.modal').fadeTo(1000, 500).slideUp(500, function () {
-            $(this).slideUp(500);
-          })
-            .attr('aria-hidden', 'true')
-            .css('display', 'none');
-          $('.modal-backdrop').remove();
+          $('.modal').modal('hide'); // TODO
 
           this.router.navigate([], {relativeTo: this.route});
         }
