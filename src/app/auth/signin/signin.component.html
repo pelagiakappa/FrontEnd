@@ -1,33 +1,47 @@
 <div class="modal-dialog modal-sm">
-  <div class="modal-content">
-    <div class="modal-header">
+  <div class="modal-content animate">
+    <div class="modal-header" style="padding:30px 30px;">
       <button class="close" type="button"
               data-dismiss="modal">&times;
       </button>
-      <h4 class="modal-title">Login</h4>
+      <h4 class="modal-title">
+        <span class="glyphicon glyphicon-lock"></span> Login</h4>
     </div>
-    <form (ngSubmit)="onSignin(f)" #f="ngForm">
-      <div class="modal-body">
+    <div class="modal-body" style="padding:20px 20px;">
+      <form (ngSubmit)="onSignin(f)" #f="ngForm" role="form">
         <div class="form-group">
-          <label>Email</label>
-          <input type="email" name="email"
-                 ngModel class="form-control">
+          <label>
+            <span class="glyphicon glyphicon-user"></span>
+            Username</label>
+          <input type="email" name="email" ngModel required
+                 placeholder="Enter email" class="form-control">
         </div>
         <div class="form-group">
-          <label>Password</label>
-          <input type="password" name="password"
-                 ngModel class="form-control">
+          <label>
+            <span class="glyphicon glyphicon-eye-open"></span>
+            Password</label>
+          <input type="password" name="password" ngModel required
+                 placeholder="Enter password" class="form-control">
         </div>
-        <app-alerts [flagError]="true"
-                    [flagSuccess]="false"></app-alerts>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" type="submit">Sign In
+        <div class="checkbox">
+          <label><input type="checkbox" value="remember"
+                        checked="checked">Remember me</label>
+        </div>
+        <button class="btn btn-success btn-block" type="submit">
+          <span class="glyphicon glyphicon-off"></span> Sign In
         </button>
-        <button class="btn btn-default" type="button"
-                data-dismiss="modal">Close
-        </button>
-      </div>
-    </form>
+      </form>
+      <br>
+      <app-alerts [flagError]="true"
+                  [flagSuccess]="false"></app-alerts>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger btn-default pull-left" type="submit"
+              data-dismiss="modal">
+        <span class="glyphicon glyphicon-remove"></span> Cancel
+      </button>
+      <p>Not a member? <a>Sign Up</a></p>
+      <p>Forgot <a>Password?</a></p>
+    </div>
   </div>
 </div>
