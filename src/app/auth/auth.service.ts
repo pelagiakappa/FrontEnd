@@ -7,7 +7,7 @@ import * as $ from 'jquery';
 export class AuthService {
   token: string;
   successMessage = new EventEmitter<string>();
-  errorMessage = new EventEmitter<Error>();
+  errorMessage = new EventEmitter<string>();
 
   constructor(private router: Router,
               private route: ActivatedRoute) {
@@ -20,16 +20,7 @@ export class AuthService {
           console.log(response);
           this.successMessage.emit('You are now registered!');
 
-          $('.alert').fadeTo(2000, 500).slideUp(500, function () {
-            $(this).slideUp(500);
-          });
-
-          $('.modal').fadeTo(1000, 500).slideUp(500, function () {
-            $(this).slideUp(500);
-          })
-            .attr('aria-hidden', 'true')
-            .css('display', 'none');
-          $('.modal-backdrop').remove();
+          $('.modal').modal('hide'); // TODO
 
           this.router.navigate([], {relativeTo: this.route});
         }
@@ -37,7 +28,7 @@ export class AuthService {
       .catch(
         error => {
           console.log(error);
-          this.errorMessage.emit(error);
+          this.errorMessage.emit(error.message);
         }
       );
   }
@@ -55,10 +46,6 @@ export class AuthService {
               }
             );
 
-          $('.alert').fadeTo(2000, 500).slideUp(500, function () {
-            $(this).slideUp(500);
-          });
-
           $('.modal').modal('hide'); // TODO
 
           this.router.navigate([], {relativeTo: this.route});
@@ -67,7 +54,7 @@ export class AuthService {
       .catch(
         error => {
           console.log(error);
-          this.errorMessage.emit(error);
+          this.errorMessage.emit(error.message);
         }
       );
   }
@@ -75,6 +62,8 @@ export class AuthService {
   logout() {
     firebase.auth().signOut();
     this.token = null;
+    this.successMessage.emit('Logout');
+    this.errorMessage.emit('Logout');
     this.router.navigate([], {relativeTo: this.route});
   }
 

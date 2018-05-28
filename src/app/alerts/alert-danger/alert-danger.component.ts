@@ -1,7 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import * as $ from 'jquery';
-
-import {AuthService} from '../../auth/auth.service';
 
 @Component({
   selector: 'app-alert-danger',
@@ -9,20 +7,15 @@ import {AuthService} from '../../auth/auth.service';
   styleUrls: ['./alert-danger.component.css']
 })
 export class AlertDangerComponent implements OnInit {
-  messageError: string;
+  @Input() error: string;
 
-  constructor(private authService: AuthService) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.authService.errorMessage.subscribe(
-      (error: Error) => {
-        this.messageError = error.message;
-        $('.alert').fadeTo(4000, 500).slideUp(500, function () {
-          $(this).slideUp(500);
-        });
-      }
-    );
+    $('.alert').fadeTo(4000, 500).slideUp(500, function () {
+      $(this).slideUp(500);
+    });
   }
 
 }

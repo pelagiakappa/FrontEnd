@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import * as $ from 'jquery';
 
 import {AuthService} from '../auth/auth.service';
 
@@ -8,7 +9,10 @@ import {AuthService} from '../auth/auth.service';
   styleUrls: ['./alerts.component.css']
 })
 export class AlertsComponent implements OnInit {
+  @Input() flagSuccess: boolean;
+  @Input() flagError: boolean;
   messageSuccess: string;
+  messageError: string;
 
   constructor(private authService: AuthService) {
   }
@@ -16,7 +20,26 @@ export class AlertsComponent implements OnInit {
   ngOnInit() {
     this.authService.successMessage.subscribe(
       (message: string) => {
-        this.messageSuccess = message;
+        if (message === 'Logout') {
+          this.messageSuccess = undefined;
+        } else {
+          this.messageSuccess = message;
+          $('.alert').fadeTo(3000, 500).slideUp(500, function () {
+            $(this).slideUp(500);
+          });
+        }
+      }
+    );
+    this.authService.errorMessage.subscribe(
+      (error: string) => {
+        if (error === 'Logout') {
+          this.messageError = undefined;
+        } else {
+          this.messageError = error;
+          $('.alert').fadeTo(4000, 500).slideUp(500, function () {
+            $(this).slideUp(500);
+          });
+        }
       }
     );
   }

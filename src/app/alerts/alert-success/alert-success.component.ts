@@ -13,7 +13,7 @@ export class AlertSuccessComponent implements OnInit {
   }
 
   ngOnInit() {
-    $('.alert').fadeTo(2000, 500).slideUp(500, function () {
+    $('.alert').fadeTo(3000, 500).slideUp(500, function () {
       $(this).slideUp(500);
     });
   }
