@@ -20,7 +20,7 @@ export class AuthService {
           console.log(response);
           this.successMessage.emit('You are now registered!');
 
-          $('.modal').modal('hide'); // TODO
+          $('#myModalSignup').modal('hide'); // TODO
 
           this.router.navigate([], {relativeTo: this.route});
         }
@@ -46,7 +46,7 @@ export class AuthService {
               }
             );
 
-          $('.modal').modal('hide'); // TODO
+          $('#myModalSignin').modal('hide'); // TODO
 
           this.router.navigate([], {relativeTo: this.route});
         }
