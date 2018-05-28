@@ -2,6 +2,8 @@ import {EventEmitter, Injectable} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import * as firebase from 'firebase';
 
+import {EventService} from '../shared/event.service';
+
 declare var $: any;
 
 @Injectable()
@@ -11,7 +13,8 @@ export class AuthService {
   errorMessage = new EventEmitter<string>();
 
   constructor(private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private eventService: EventService) {
   }
 
   signupUser(email: string, password: string) {
@@ -46,6 +49,9 @@ export class AuthService {
                 this.token = token;
               }
             );
+
+          this.eventService.email.emit(email);
+          this.eventService.password.emit(password);
 
           $('#myModalSignin').modal('hide');
 
