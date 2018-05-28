@@ -1,7 +1,8 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import * as firebase from 'firebase';
-import * as $ from 'jquery';
+
+declare var $: any;
 
 @Injectable()
 export class AuthService {
@@ -20,7 +21,7 @@ export class AuthService {
           console.log(response);
           this.successMessage.emit('You are now registered!');
 
-          $('#myModalSignup').modal('hide'); // TODO
+          $('#myModalSignup').modal('hide');
 
           this.router.navigate([], {relativeTo: this.route});
         }
@@ -46,7 +47,7 @@ export class AuthService {
               }
             );
 
-          $('#myModalSignin').modal('hide'); // TODO
+          $('#myModalSignin').modal('hide');
 
           this.router.navigate([], {relativeTo: this.route});
         }

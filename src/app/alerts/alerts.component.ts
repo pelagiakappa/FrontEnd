@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import * as $ from 'jquery';
+
+declare var $: any;
 
 import {AuthService} from '../auth/auth.service';
 

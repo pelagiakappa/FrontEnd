@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import * as $ from 'jquery';
+
+declare var $: any;
 
 @Component({
   selector: 'app-alert-success',
