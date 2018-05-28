@@ -56,6 +56,7 @@ export class AuthService {
         error => {
           console.log(error);
           this.errorMessage.emit(error.message);
+          this.successMessage.emit('Logout');
         }
       );
   }
