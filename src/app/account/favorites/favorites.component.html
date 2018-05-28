@@ -1,3 +1,6 @@
-<p>
-  favorites works!
-</p>
+<div class="container">
+  <div class="list-group col-lg-5 col-lg-offset-3"
+       *ngFor="let favorite of favorites">
+    <a class="list-group-item active">{{favorite}}</a>
+  </div>
+</div>
