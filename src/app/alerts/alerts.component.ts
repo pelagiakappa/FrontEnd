@@ -25,7 +25,7 @@ export class AlertsComponent implements OnInit {
           this.messageSuccess = undefined;
         } else {
           this.messageSuccess = message;
-          $('.alert').fadeTo(3000, 500).slideUp(500, function () {
+          $('.alert').fadeTo(2000, 500).slideUp(500, function () {
             $(this).slideUp(500);
           });
         }
