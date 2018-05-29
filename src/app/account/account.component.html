@@ -48,7 +48,7 @@
       <div class="tab-pane fade in active" id="tab1">
         <p><strong>Email:</strong> {{email}}</p>
         <button data-toggle="collapse" data-target="#myCollapse"
-                class="btn btn-info">Show Password
+                class="btn btn-info" (click)="onClick()">{{pswMessage}}
         </button>
         <p id="myCollapse" class="collapse">{{password}}</p>
       </div>

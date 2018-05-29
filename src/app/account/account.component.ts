@@ -12,6 +12,9 @@ declare var $: any;
 export class AccountComponent implements OnInit {
   email: string;
   password: string;
+  showPassword = 'Show Password';
+  hidePassword = 'Hide Password';
+  pswMessage = this.showPassword;
 
   constructor(private eventService: EventService) {
   }
@@ -33,6 +36,14 @@ export class AccountComponent implements OnInit {
         $(this).removeClass('btn-default').addClass('btn-primary');
       });
     });
+  }
+
+  onClick() {
+    if (this.pswMessage === this.showPassword) {
+      this.pswMessage = this.hidePassword;
+    } else {
+      this.pswMessage = this.showPassword;
+    }
   }
 
 }
