@@ -7,6 +7,8 @@ import {BlueprintDetailsComponent} from './blueprints/blueprint/blueprint-detail
 import {AccountComponent} from './account/account.component';
 import {FavoritesComponent} from './account/favorites/favorites.component';
 import {OrdersComponent} from './account/orders/orders.component';
+import {RatingsComponent} from './account/ratings/ratings.component';
+import {AuthGuard} from './auth/auth-guard.service';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -19,9 +21,19 @@ const appRoutes: Routes = [
   {path: 'details/:blueprint', component: BlueprintDetailsComponent},
   {
     path: 'account', component: AccountComponent, children: [
-      {path: 'favorites', component: FavoritesComponent},
-      {path: 'orders', component: OrdersComponent}
-    ]
+      {
+        path: 'favorites', component: FavoritesComponent,
+        data: {title: 'favorites'}
+      },
+      {
+        path: 'ratings', component: RatingsComponent,
+        data: {title: 'ratings'}
+      },
+      {
+        path: 'orders', component: OrdersComponent,
+        data: {title: 'orders'}
+      }
+    ], canActivate: [AuthGuard], data: {title: 'profile'}
   },
   {path: '**', redirectTo: '/'}
 ];

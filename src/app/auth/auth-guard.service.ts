@@ -1,4 +1,3 @@
-// -->257 Route Protection and Redirection Example<--
 import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot} from '@angular/router';
 import {Injectable} from '@angular/core';
 

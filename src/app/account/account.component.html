@@ -15,29 +15,33 @@
   <div class="btn-pref btn-group btn-group-justified btn-group-lg"
        role="group" aria-label="...">
     <div class="btn-group" role="group">
-      <button type="button" id="following" class="btn btn-primary"
-              data-toggle="tab" data-target="#tab1">
+      <button type="button" id="profile" class="btn btn-primary"
+              data-toggle="tab" data-target="#tab1"
+              (click)="onClickProfile()">
         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
         <div class="hidden-xs">Your Profile</div>
       </button>
     </div>
     <div class="btn-group" role="group">
       <button type="button" id="favorites" class="btn btn-default"
-              data-toggle="tab" data-target="#tab2">
+              data-toggle="tab" data-target="#tab2"
+              (click)="onClickFavorites()">
         <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
         <div class="hidden-xs">Your Saved Items</div>
       </button>
     </div>
     <div class="btn-group" role="group">
-      <button type="button" id="stars" class="btn btn-default"
-              data-toggle="tab" data-target="#tab3">
+      <button type="button" id="ratings" class="btn btn-default"
+              data-toggle="tab" data-target="#tab3"
+              (click)="onClickRatings()">
         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
         <div class="hidden-xs">Your Ratings</div>
       </button>
     </div>
     <div class="btn-group" role="group">
       <button type="button" id="orders" class="btn btn-default"
-              data-toggle="tab" data-target="#tab4">
+              data-toggle="tab" data-target="#tab4"
+              (click)="onClickOrders()">
         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
         <div class="hidden-xs">Your Orders</div>
       </button>
@@ -48,18 +52,19 @@
       <div class="tab-pane fade in active" id="tab1">
         <p><strong>Email:</strong> {{email}}</p>
         <button data-toggle="collapse" data-target="#myCollapse"
-                class="btn btn-info" (click)="onClick()">{{pswMessage}}
+                class="btn btn-info"
+                (click)="onClickPsw()">{{pswMessage}}
         </button>
         <p id="myCollapse" class="collapse">{{password}}</p>
       </div>
       <div class="tab-pane fade in" id="tab2">
-        <app-favorites></app-favorites>
+        <router-outlet *ngIf="favoritesFlag"></router-outlet>
       </div>
       <div class="tab-pane fade in" id="tab3">
-        <h3>Ratings</h3>
+        <router-outlet *ngIf="ratingsFlag"></router-outlet>
       </div>
       <div class="tab-pane fade in" id="tab4">
-        <app-orders></app-orders>
+        <router-outlet *ngIf="ordersFlag"></router-outlet>
       </div>
     </div>
   </div>
