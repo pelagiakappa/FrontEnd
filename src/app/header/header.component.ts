@@ -1,4 +1,5 @@
 import {Component, DoCheck, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 import {BlueprintsService} from '../blueprints/blueprints.service';
 import {CategoriesService} from '../categories/categories.service';
@@ -17,7 +18,8 @@ export class HeaderComponent implements OnInit, DoCheck {
   constructor(private blueprintsService: BlueprintsService,
               private categoriesService: CategoriesService,
               public authService: AuthService,
-              private eventService: EventService) {
+              private eventService: EventService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -30,6 +32,14 @@ export class HeaderComponent implements OnInit, DoCheck {
 
   ngDoCheck() {
     this.blueprintsSaved = this.blueprintsService.getSavedBlueprints();
+
+    const url = this.router.url;
+    if (url === '/account' ||
+      url === '/account/favorites' ||
+      url === '/account/ratings' ||
+      url === '/account/orders') {
+      this.homeCategory = false;
+    }
   }
 
   onLogout() {
