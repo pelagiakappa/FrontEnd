@@ -11,8 +11,8 @@ declare var $: any;
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit, DoCheck {
-  email: string;
-  password: string;
+  emailAccount: string;
+  passwordAccount: string;
   showPassword = 'Show Password';
   hidePassword = 'Hide Password';
   pswMessage = this.showPassword;
@@ -25,14 +25,14 @@ export class AccountComponent implements OnInit, DoCheck {
   }
 
   ngOnInit() {
-    this.eventService.email.subscribe(
+    this.eventService.emailEvent.subscribe(
       (email: string) => {
-        this.email = email;
+        this.emailAccount = email;
       }
     );
-    this.eventService.password.subscribe(
+    this.eventService.passwordEvent.subscribe(
       (psw: string) => {
-        this.password = psw;
+        this.passwordAccount = psw;
       }
     );
     $(document).ready(function () {

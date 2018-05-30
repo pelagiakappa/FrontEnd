@@ -50,8 +50,8 @@ export class AuthService {
               }
             );
 
-          this.eventService.email.emit(email);
-          this.eventService.password.emit(password);
+          this.eventService.emailEvent.emit(email);
+          this.eventService.passwordEvent.emit(password);
 
           $('#myModalSignin').modal('hide');
 
