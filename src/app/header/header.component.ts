@@ -3,6 +3,7 @@ import {Component, DoCheck, OnInit} from '@angular/core';
 import {BlueprintsService} from '../blueprints/blueprints.service';
 import {CategoriesService} from '../categories/categories.service';
 import {AuthService} from '../auth/auth.service';
+import {EventService} from '../shared/event.service';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,8 @@ export class HeaderComponent implements OnInit, DoCheck {
 
   constructor(private blueprintsService: BlueprintsService,
               private categoriesService: CategoriesService,
-              public authService: AuthService) {
+              public authService: AuthService,
+              private eventService: EventService) {
   }
 
   ngOnInit() {
@@ -34,4 +36,7 @@ export class HeaderComponent implements OnInit, DoCheck {
     this.authService.logout();
   }
 
+  onClick(name: string) {
+    this.eventService.linkClicked.emit(name);
+  }
 }

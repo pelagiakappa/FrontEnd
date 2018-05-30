@@ -54,14 +54,18 @@
             </a>
             <ul class="dropdown-menu">
               <li><a style="cursor: pointer;" title="Your Profile"
-                     routerLink="/account">Your Profile</a></li>
+                     routerLink="/account"
+                     (click)="onClick('profile')">Your Profile</a></li>
               <li><a style="cursor: pointer;" title="Your Saved Items"
-                     routerLink="/account/favorites">Your Saved Items
-              </a></li>
+                     routerLink="/account/favorites"
+                     (click)="onClick('favorites')">Your Saved Items</a>
+              </li>
               <li><a style="cursor: pointer;" title="Your Ratings"
-                     routerLink="/account/ratings">Your Ratings</a></li>
+                     routerLink="/account/ratings"
+                     (click)="onClick('ratings')">Your Ratings</a></li>
               <li><a style="cursor: pointer;" title="Your Orders"
-                     routerLink="/account/orders">Your Orders</a></li>
+                     routerLink="/account/orders"
+                     (click)="onClick('orders')">Your Orders</a></li>
               <li><a style="cursor: pointer;" title="Logout"
                      (click)="onLogout()">
                 <span class="glyphicon glyphicon-log-out"></span>
