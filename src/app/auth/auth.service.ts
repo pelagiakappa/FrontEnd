@@ -70,9 +70,19 @@ export class AuthService {
   logout() {
     firebase.auth().signOut();
     this.token = null;
+
     this.successMessage.emit('Logout');
     this.errorMessage.emit('Logout');
-    this.router.navigate([], {relativeTo: this.route});
+
+    const url = this.router.url;
+    if (url === '/account' ||
+      url === '/account/favorites' ||
+      url === '/account/ratings' ||
+      url === '/account/orders') {
+      this.router.navigate(['/']);
+    } else {
+      this.router.navigate([], {relativeTo: this.route});
+    }
   }
 
   getToken() {
