@@ -10,19 +10,18 @@
     <div class="modal-body" style="padding:20px 20px;">
       <form (ngSubmit)="onSignup(f)" #f="ngForm" role="form">
         <div class="form-group">
-          <label for="email">
+          <label>
             <span class="glyphicon glyphicon-user"></span>
             Username</label>
-          <input type="email" name="email" id="email" ngModel required
+          <input type="email" name="email" ngModel required
                  placeholder="Enter email" class="form-control">
         </div>
         <div class="form-group">
-          <label for="password">
+          <label>
             <span class="glyphicon glyphicon-eye-open"></span>
             Password (at least 6 characters)</label>
-          <input type="password" name="password" id="password" ngModel
-                 required placeholder="Enter password"
-                 class="form-control">
+          <input type="password" name="password" ngModel required
+                 placeholder="Enter password" class="form-control">
         </div>
         <div class="checkbox">
           <label><input type="checkbox" value="remember"
@@ -41,7 +40,10 @@
               data-dismiss="modal">
         <span class="glyphicon glyphicon-remove"></span> Cancel
       </button>
-      <p>You are a member? <a>Sign In</a></p>
+      <p>You are a member?
+        <a title="Sign In" style="cursor: pointer;"
+           data-toggle="modal" data-target="#myModalSignin"
+           (click)="onClickSignin()">Sign In</a></p>
     </div>
   </div>
 </div>

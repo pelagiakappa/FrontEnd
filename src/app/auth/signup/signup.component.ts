@@ -3,6 +3,8 @@ import {NgForm} from '@angular/forms';
 
 import {AuthService} from '../auth.service';
 
+declare var $: any;
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -20,6 +22,10 @@ export class SignupComponent implements OnInit {
     const email = form.value.email;
     const password = form.value.password;
     this.authService.signupUser(email, password);
+  }
+
+  onClickSignin() {
+    $('#myModalSignup').modal('hide');
   }
 
 }
