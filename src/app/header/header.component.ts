@@ -5,6 +5,8 @@ import {BlueprintsService} from '../blueprints/blueprints.service';
 import {CategoriesService} from '../categories/categories.service';
 import {AuthService} from '../auth/auth.service';
 
+declare var $: any;
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -37,6 +39,14 @@ export class HeaderComponent implements OnInit, DoCheck {
       url === '/account/ratings' ||
       url === '/account/orders') {
       this.homeCategory = false;
+    }
+  }
+
+  onDropdown() {
+    if ($('#idAccount').hasClass('dropup')) {
+      $('#idAccount').removeClass('dropup');
+    } else {
+      $('#idAccount').addClass('dropup');
     }
   }
 
