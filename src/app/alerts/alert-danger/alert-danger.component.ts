@@ -14,7 +14,7 @@ export class AlertDangerComponent implements OnInit {
   }
 
   ngOnInit() {
-    $('.alert').fadeTo(4000, 500).slideUp(500, function () {
+    $('.alert').fadeTo(3000, 500).slideUp(500, function () {
       $(this).slideUp(500);
     });
   }

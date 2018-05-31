@@ -13,9 +13,6 @@ declare var $: any;
 export class AccountComponent implements OnInit, DoCheck {
   emailAccount: string;
   passwordAccount: string;
-  showPassword = 'Show Password';
-  hidePassword = 'Hide Password';
-  pswMessage = this.showPassword;
   favoritesFlag: boolean;
   ratingsFlag: boolean;
   ordersFlag: boolean;
@@ -25,8 +22,6 @@ export class AccountComponent implements OnInit, DoCheck {
   }
 
   ngOnInit() {
-    this.emailAccount = this.authService.emailSaved;
-    this.passwordAccount = this.authService.pswSaved;
     $(document).ready(function () {
       $('.btn-pref .btn').click(function () {
         $('.btn-pref .btn').removeClass('btn-primary').addClass('btn-default');
@@ -36,6 +31,9 @@ export class AccountComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
+    this.emailAccount = this.authService.emailSaved;
+    // TODO stop storing user password in frontend (Zero Security!)
+    this.passwordAccount = this.authService.pswSaved;
     const url = this.router.url;
     if (url === '/account') {
       $('#profile').removeClass('btn-default').addClass('btn-primary');
@@ -69,14 +67,6 @@ export class AccountComponent implements OnInit, DoCheck {
     }
   }
 
-  onClickPsw() {
-    if (this.pswMessage === this.showPassword) {
-      this.pswMessage = this.hidePassword;
-    } else {
-      this.pswMessage = this.showPassword;
-    }
-  }
-
   onClickProfile() {
     this.router.navigate(['/account']);
   }
@@ -100,6 +90,23 @@ export class AccountComponent implements OnInit, DoCheck {
     this.favoritesFlag = false;
     this.ratingsFlag = false;
     this.router.navigate(['/account/orders']);
+  }
+
+  onSaveChanges(currentPsw: string, newPsw: string, reenterNewPsw: string) {
+    if (currentPsw === this.passwordAccount) {
+      if (currentPsw === newPsw) {
+        this.authService.infoMessage.emit('No changes detected!');
+        this.authService.errorMessage.emit('Logout');
+      } else if (newPsw !== reenterNewPsw) {
+        this.authService.errorMessage.emit('Error! Reenter the new password!');
+        this.authService.infoMessage.emit('Logout');
+      } else {
+        this.authService.changePassword(newPsw);
+      }
+    } else {
+      this.authService.errorMessage.emit('This is not your current password!');
+      this.authService.infoMessage.emit('Logout');
+    }
   }
 
 }

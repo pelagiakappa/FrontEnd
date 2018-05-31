@@ -9,6 +9,7 @@ export class AuthService {
   token: string;
   successMessage = new EventEmitter<string>();
   errorMessage = new EventEmitter<string>();
+  infoMessage = new EventEmitter<string>();
   emailSaved: string;
   pswSaved: string;
 
@@ -66,12 +67,32 @@ export class AuthService {
       );
   }
 
+  changePassword(newPassword: string) {
+    firebase.auth().currentUser.updatePassword(newPassword)
+      .then(
+        response => {
+          console.log(response);
+          this.pswSaved = newPassword;
+          this.infoMessage.emit('Your password changed successfully!');
+          this.errorMessage.emit('Logout');
+        }
+      )
+      .catch(
+        error => {
+          console.log(error);
+          this.errorMessage.emit(error.message);
+          this.infoMessage.emit('Logout');
+        }
+      );
+  }
+
   logout() {
     firebase.auth().signOut();
     this.token = null;
 
     this.successMessage.emit('Logout');
     this.errorMessage.emit('Logout');
+    this.infoMessage.emit('Logout');
 
     const url = this.router.url;
     if (url === '/account' ||

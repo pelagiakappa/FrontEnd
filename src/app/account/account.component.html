@@ -47,15 +47,48 @@
       </button>
     </div>
   </div>
-  <div class="well">
+  <div class="well col-lg-12 col-lg-offset-0">
     <div class="tab-content">
       <div class="tab-pane fade in" id="tab1">
-        <p><strong>Email:</strong> {{emailAccount}}</p>
-        <button data-toggle="collapse" data-target="#myCollapse"
-                class="btn btn-info"
-                (click)="onClickPsw()">{{pswMessage}}
-        </button>
-        <p id="myCollapse" class="collapse">{{passwordAccount}}</p>
+        <div class="form-inline">
+          <label class="control-label">Email:</label>
+          <p class="form-control-static">{{emailAccount}}</p>
+        </div>
+        <div class="form-group">
+          <button data-toggle="collapse" data-target="#myCollapse"
+                  class="btn btn-info">Change Password
+          </button>
+        </div>
+        <div id="myCollapse" class="collapse col-lg-3 col-lg-offset-0">
+          <div class="form-group">
+            <label class="control-label"
+                   for="currentPsw">Current Password:</label>
+            <input type="password" name="password" id="currentPsw"
+                   placeholder="Enter current password" #currentPsw
+                   class="form-control input-group-sm" required>
+          </div>
+          <div class="form-group">
+            <label class="control-label"
+                   for="newPsw">New Password:</label>
+            <input type="password" name="password" id="newPsw"
+                   placeholder="Enter new password" #newPsw
+                   class="form-control input-group-sm" required>
+          </div>
+          <div class="form-group">
+            <label class="control-label"
+                   for="reenterNewPsw">Reenter new Password:</label>
+            <input type="password" name="password" id="reenterNewPsw"
+                   placeholder="Reenter new password" #reenterNewPsw
+                   class="form-control input-group-sm" required>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success"
+                    (click)="onSaveChanges(currentPsw.value, newPsw.value, reenterNewPsw.value)">Save Changes
+            </button>
+          </div>
+          <app-alerts [flagInfo]="true" [flagError]="true"
+                      [flagSuccess]="false"></app-alerts>
+        </div>
       </div>
       <div class="tab-pane fade in" id="tab2">
         <router-outlet *ngIf="favoritesFlag"></router-outlet>

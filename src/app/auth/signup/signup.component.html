@@ -10,14 +10,14 @@
     <div class="modal-body" style="padding:20px 20px;">
       <form (ngSubmit)="onSignup(f)" #f="ngForm" role="form">
         <div class="form-group">
-          <label>
+          <label class="control-label">
             <span class="glyphicon glyphicon-user"></span>
             Username</label>
           <input type="email" name="email" ngModel required
                  placeholder="Enter email" class="form-control">
         </div>
         <div class="form-group">
-          <label>
+          <label class="control-label">
             <span class="glyphicon glyphicon-eye-open"></span>
             Password (at least 6 characters)</label>
           <input type="password" name="password" ngModel required
@@ -33,7 +33,7 @@
       </form>
       <br>
       <app-alerts [flagError]="true"
-                  [flagSuccess]="false"></app-alerts>
+                  [flagSuccess]="false" [flagInfo]="false"></app-alerts>
     </div>
     <div class="modal-footer">
       <button class="btn btn-danger btn-default pull-left" type="submit"

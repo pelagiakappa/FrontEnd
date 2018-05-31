@@ -12,8 +12,10 @@ import {AuthService} from '../auth/auth.service';
 export class AlertsComponent implements OnInit {
   @Input() flagSuccess: boolean;
   @Input() flagError: boolean;
+  @Input() flagInfo: boolean;
   messageSuccess: string;
   messageError: string;
+  messageInfo: string;
 
   constructor(private authService: AuthService) {
   }
@@ -25,7 +27,7 @@ export class AlertsComponent implements OnInit {
           this.messageSuccess = undefined;
         } else {
           this.messageSuccess = message;
-          $('.alert').fadeTo(2000, 500).slideUp(500, function () {
+          $('.alert').fadeTo(1000, 500).slideUp(500, function () {
             $(this).slideUp(500);
           });
         }
@@ -37,7 +39,19 @@ export class AlertsComponent implements OnInit {
           this.messageError = undefined;
         } else {
           this.messageError = error;
-          $('.alert').fadeTo(4000, 500).slideUp(500, function () {
+          $('.alert').fadeTo(3000, 500).slideUp(500, function () {
+            $(this).slideUp(500);
+          });
+        }
+      }
+    );
+    this.authService.infoMessage.subscribe(
+      (info: string) => {
+        if (info === 'Logout') {
+          this.messageInfo = undefined;
+        } else {
+          this.messageInfo = info;
+          $('.alert').fadeTo(2000, 500).slideUp(500, function () {
             $(this).slideUp(500);
           });
         }
