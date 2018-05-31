@@ -13,8 +13,6 @@ declare var $: any;
 export class AccountComponent implements OnInit, DoCheck {
   emailAccount: string;
   passwordAccount: string;
-  emailFlag: boolean;
-  pswFlag: boolean;
   favoritesFlag: boolean;
   ratingsFlag: boolean;
   ordersFlag: boolean;
@@ -95,8 +93,6 @@ export class AccountComponent implements OnInit, DoCheck {
   }
 
   onSaveEmail(newEmail: string) {
-    this.emailFlag = true;
-    this.pswFlag = false;
     this.authService.successMessage.emit('Logout');
     if (newEmail === this.emailAccount) {
       this.authService.infoMessage.emit('No changes detected!');
@@ -107,8 +103,6 @@ export class AccountComponent implements OnInit, DoCheck {
   }
 
   onSavePsw(currentPsw: string, newPsw: string, reenterNewPsw: string) {
-    this.pswFlag = true;
-    this.emailFlag = false;
     this.authService.successMessage.emit('Logout');
     if (currentPsw === this.passwordAccount) {
       if (currentPsw === newPsw) {

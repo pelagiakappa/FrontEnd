@@ -47,7 +47,7 @@
       </button>
     </div>
   </div>
-  <div class="well col-xs-12 col-xs-offset-0 col-lg-12 col-lg-offset-0">
+  <div class="well">
     <div class="tab-content">
       <div class="tab-pane fade in" id="tab1">
         <div class="form-inline">
@@ -61,7 +61,7 @@
             Change Email <span class="caret"></span>
           </button>
         </div>
-        <div id="myCollapseEmail" class="collapse col-xs-5 col-xs-offset-0 col-lg-3 col-lg-offset-0">
+        <div id="myCollapseEmail" class="collapse">
           <div class="form-group">
             <label class="control-label"
                    for="newEmail">New Email:</label>
@@ -75,9 +75,6 @@
               Save Changes
             </button>
           </div>
-          <app-alerts *ngIf="emailFlag"
-                      [flagInfo]="true" [flagError]="true"
-                      [flagSuccess]="false"></app-alerts>
         </div>
         <div class="form-group">
           <button data-toggle="collapse" data-target="#myCollapsePsw"
@@ -86,7 +83,7 @@
             Change Password <span class="caret"></span>
           </button>
         </div>
-        <div id="myCollapsePsw" class="collapse col-xs-5 col-xs-offset-0 col-lg-3 col-lg-offset-0">
+        <div id="myCollapsePsw" class="collapse">
           <form>
             <div class="form-group">
               <label class="control-label"
@@ -112,17 +109,16 @@
                      class="form-control input-group-sm" required
                      autocomplete="on">
             </div>
-            <div class="form-group">
-              <button class="btn btn-success"
-                      (click)="onSavePsw(currentPsw.value, newPsw.value, reenterNewPsw.value)">
-                Save Changes
-              </button>
-            </div>
           </form>
-          <app-alerts *ngIf="pswFlag"
-                      [flagInfo]="true" [flagError]="true"
-                      [flagSuccess]="false"></app-alerts>
+          <div class="form-group">
+            <button class="btn btn-success"
+                    (click)="onSavePsw(currentPsw.value, newPsw.value, reenterNewPsw.value)">
+              Save Changes
+            </button>
+          </div>
         </div>
+        <app-alerts [flagInfo]="true" [flagError]="true"
+                    [flagSuccess]="false"></app-alerts>
       </div>
       <div class="tab-pane fade in" id="tab2">
         <router-outlet *ngIf="favoritesFlag"></router-outlet>
