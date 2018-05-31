@@ -13,6 +13,8 @@ declare var $: any;
 export class AccountComponent implements OnInit, DoCheck {
   emailAccount: string;
   passwordAccount: string;
+  emailFlag: boolean;
+  pswFlag: boolean;
   favoritesFlag: boolean;
   ratingsFlag: boolean;
   ordersFlag: boolean;
@@ -92,7 +94,22 @@ export class AccountComponent implements OnInit, DoCheck {
     this.router.navigate(['/account/orders']);
   }
 
-  onSaveChanges(currentPsw: string, newPsw: string, reenterNewPsw: string) {
+  onSaveEmail(newEmail: string) {
+    this.emailFlag = true;
+    this.pswFlag = false;
+    this.authService.successMessage.emit('Logout');
+    if (newEmail === this.emailAccount) {
+      this.authService.infoMessage.emit('No changes detected!');
+      this.authService.errorMessage.emit('Logout');
+    } else {
+      this.authService.changeEmail(newEmail);
+    }
+  }
+
+  onSavePsw(currentPsw: string, newPsw: string, reenterNewPsw: string) {
+    this.pswFlag = true;
+    this.emailFlag = false;
+    this.authService.successMessage.emit('Logout');
     if (currentPsw === this.passwordAccount) {
       if (currentPsw === newPsw) {
         this.authService.infoMessage.emit('No changes detected!');
@@ -106,6 +123,22 @@ export class AccountComponent implements OnInit, DoCheck {
     } else {
       this.authService.errorMessage.emit('This is not your current password!');
       this.authService.infoMessage.emit('Logout');
+    }
+  }
+
+  onChangeEmail() {
+    if ($('#changeEmail').hasClass('dropup')) {
+      $('#changeEmail').removeClass('dropup');
+    } else {
+      $('#changeEmail').addClass('dropup');
+    }
+  }
+
+  onChangePsw() {
+    if ($('#changePsw').hasClass('dropup')) {
+      $('#changePsw').removeClass('dropup');
+    } else {
+      $('#changePsw').addClass('dropup');
     }
   }
 

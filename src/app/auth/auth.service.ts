@@ -75,6 +75,7 @@ export class AuthService {
           this.pswSaved = newPassword;
           this.infoMessage.emit('Your password changed successfully!');
           this.errorMessage.emit('Logout');
+          this.successMessage.emit('Logout');
         }
       )
       .catch(
@@ -82,6 +83,28 @@ export class AuthService {
           console.log(error);
           this.errorMessage.emit(error.message);
           this.infoMessage.emit('Logout');
+          this.successMessage.emit('Logout');
+        }
+      );
+  }
+
+  changeEmail(newEmail: string) {
+    firebase.auth().currentUser.updateEmail(newEmail)
+      .then(
+        response => {
+          console.log(response);
+          this.emailSaved = newEmail;
+          this.infoMessage.emit('Your email changed successfully!');
+          this.errorMessage.emit('Logout');
+          this.successMessage.emit('Logout');
+        }
+      )
+      .catch(
+        error => {
+          console.log(error);
+          this.errorMessage.emit(error.message);
+          this.infoMessage.emit('Logout');
+          this.successMessage.emit('Logout');
         }
       );
   }
