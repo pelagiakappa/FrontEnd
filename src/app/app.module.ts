@@ -38,7 +38,6 @@ import {AlertSuccessComponent} from './alerts/alert-success/alert-success.compon
 import {AlertInfoComponent} from './alerts/alert-info/alert-info.component';
 import {AlertWarningComponent} from './alerts/alert-warning/alert-warning.component';
 import {AlertDangerComponent} from './alerts/alert-danger/alert-danger.component';
-import {EventService} from './shared/event.service';
 import {RatingsComponent} from './account/ratings/ratings.component';
 
 @NgModule({
@@ -85,8 +84,7 @@ import {RatingsComponent} from './account/ratings/ratings.component';
     BreadcrumbsService,
     DataStorageService,
     AuthService,
-    AuthGuard,
-    EventService
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

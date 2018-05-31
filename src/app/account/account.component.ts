@@ -1,7 +1,7 @@
 import {Component, DoCheck, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
-import {EventService} from '../shared/event.service';
+import {AuthService} from '../auth/auth.service';
 
 declare var $: any;
 
@@ -20,21 +20,13 @@ export class AccountComponent implements OnInit, DoCheck {
   ratingsFlag: boolean;
   ordersFlag: boolean;
 
-  constructor(private eventService: EventService,
+  constructor(private authService: AuthService,
               private router: Router) {
   }
 
   ngOnInit() {
-    this.eventService.emailEvent.subscribe(
-      (email: string) => {
-        this.emailAccount = email;
-      }
-    );
-    this.eventService.passwordEvent.subscribe(
-      (psw: string) => {
-        this.passwordAccount = psw;
-      }
-    );
+    this.emailAccount = this.authService.emailSaved;
+    this.passwordAccount = this.authService.pswSaved;
     $(document).ready(function () {
       $('.btn-pref .btn').click(function () {
         $('.btn-pref .btn').removeClass('btn-primary').addClass('btn-default');
