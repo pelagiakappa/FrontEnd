@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 
 import {BlueprintsService} from './blueprints.service';
@@ -8,7 +8,8 @@ declare var $: any;
 @Component({
   selector: 'app-blueprints',
   templateUrl: './blueprints.component.html',
-  styleUrls: ['./blueprints.component.css']
+  styleUrls: ['./blueprints.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class BlueprintsComponent implements OnInit {
   blueprints: string[];
