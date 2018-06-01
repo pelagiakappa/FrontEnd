@@ -1,8 +1,16 @@
-<div class="col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-1">
-  <h2>
-    <span>{{category}}</span>
+<div
+  class="container col-xs-9 col-xs-offset-1 col-sm-10 col-sm-offset-0 col-md-9 col-md-offset-0 col-lg-9 col-lg-offset-0">
+  <h2>{{category}}
+    <div class="btn-group pull-right">
+      <a id="grid" class="btn btn-default btn-sm active" title="Grid">
+        <span class="glyphicon glyphicon-th"></span>Grid</a>
+      <a id="list" class="btn btn-default btn-sm" title="List">
+        <span class="glyphicon glyphicon-th-list"></span>List</a>
+    </div>
   </h2>
-  <br>
-  <app-blueprint *ngFor="let blueprint of blueprints"
-                 [blueprint]="blueprint"></app-blueprint>
+  <div id="products" class="row list-group">
+    <app-blueprint class="item"
+                   *ngFor="let blueprint of blueprints"
+                   [blueprint]="blueprint"></app-blueprint>
+  </div>
 </div>
