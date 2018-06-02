@@ -90,6 +90,12 @@
   -webkit-border-radius: 0 !important;
 }
 
+.btn-pref {
+  position: sticky;
+  top: 52px;
+  z-index: 5;
+}
+
 .avatar {
   vertical-align: middle;
   width: 50px;
