@@ -25,6 +25,8 @@
 .thumbnail:hover {
   opacity: 1.00;
   box-shadow: 0px 0px 50px #4bc6ff;
+  /*background: rgb(238, 238, 238);*/
+  background: rgba(220, 220, 220, 0.73);
 }
 
 .item.list-group-item {
@@ -61,7 +63,7 @@
 }
 
 .list-group-item-success {
-  background: #eeeeee;
+  background: #e0e0e0;
 }
 
 .item.list-group-item:before, .item.list-group-item:after {
