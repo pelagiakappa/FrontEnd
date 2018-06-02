@@ -124,8 +124,8 @@ img {
   float: start;
   width: 200px;
   height: 150px;
-  /*border: 5px solid rgba(255, 255, 255, 0.5);*/
-  border: transparent;
+  border: 5px solid rgba(255, 255, 255, 0.5);
+  /*border: transparent;*/
   transform: scale(1);
 }
 

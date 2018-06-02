@@ -13,12 +13,14 @@
         <span class="glyphicon glyphicon-heart-empty"></span>
       </a>
     </ng-template>
-    <img class="group list-group-image" src="../assets/images/blue.jpg" alt="Blue Background"/>
     <div class="caption">
       <h4 class="group inner list-group-item-heading text-capitalize text-center">
         <strong>
           <a title="{{blueprint}}" style="cursor: pointer;"
-             [routerLink]="['/details', blueprint]">{{blueprint}}</a>
+             [routerLink]="['/details', blueprint]">
+            <img class="group list-group-image" src="../assets/images/blue.jpg" alt="Blue Background"/>
+            {{blueprint}}
+          </a>
         </strong>
       </h4>
       <p class="group inner list-group-item-text">
