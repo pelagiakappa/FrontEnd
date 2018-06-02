@@ -56,78 +56,84 @@
                       [flagInfo]="true" [flagError]="true"
                       [flagSuccess]="false"></app-alerts>
         </div>
-        <div class="container">
-          <div class="form-inline">
-            <label class="control-label">Email: </label>
-            <p class="form-control-static">{{emailAccount}}</p>
-          </div>
-          <br>
-          <div class="form-group">
-            <button data-toggle="collapse" data-target="#myCollapseEmail"
-                    class="btn btn-info" id="changeEmail"
-                    (click)="onChangeEmail()">
-              Change Email <span class="caret"></span>
-            </button>
-          </div>
-          <div id="myCollapseEmail"
-               class="collapse col-xs-8 col-xs-offset-0 col-sm-6 col-sm-offset-0 col-lg-4 col-lg-offset-0">
-            <div class="form-group">
-              <label class="control-label"
-                     for="newEmail">New Email:</label>
-              <input type="email" name="email" id="newEmail"
-                     placeholder="{{emailAccount}}" #newEmail
-                     class="form-control input-group-lg" required>
+        <div id="accordion">
+          <div class="container panel">
+            <div class="form-inline">
+              <label class="control-label">Email: </label>
+              <p class="form-control-static">{{emailAccount}}</p>
             </div>
+            <br>
             <div class="form-group">
-              <button class="btn btn-success"
-                      (click)="onSaveEmail(newEmail.value)">
-                Save Changes
+              <button data-toggle="collapse" data-parent="#accordion"
+                      data-target="#myCollapseEmail"
+                      class="btn btn-info" id="changeEmail"
+                      (click)="onChangeEmail()">
+                Change Email <span class="caret"></span>
               </button>
             </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="form-group">
-            <button data-toggle="collapse" data-target="#myCollapsePsw"
-                    class="btn btn-info" id="changePsw"
-                    (click)="onChangePsw()">
-              Change Password <span class="caret"></span>
-            </button>
-          </div>
-          <div id="myCollapsePsw"
-               class="collapse col-xs-6 col-xs-offset-0 col-sm-5 col-sm-offset-0 col-lg-3 col-lg-offset-0">
-            <form>
+            <div id="myCollapseEmail"
+                 class="collapse col-xs-8 col-xs-offset-0 col-sm-6 col-sm-offset-0 col-lg-4 col-lg-offset-0">
               <div class="form-group">
                 <label class="control-label"
-                       for="currentPsw">Current Password:</label>
-                <input type="password" name="password" id="currentPsw"
-                       placeholder="Enter current password" #currentPsw
-                       class="form-control input-group-sm" required
-                       autocomplete="on">
+                       for="newEmail">New Email:</label>
+                <input type="email" name="email" id="newEmail"
+                       placeholder="{{emailAccount}}" #newEmail
+                       class="form-control input-group-lg" required>
               </div>
               <div class="form-group">
-                <label class="control-label"
-                       for="newPsw">New Password:</label>
-                <input type="password" name="password" id="newPsw"
-                       placeholder="Enter new password" #newPsw
-                       class="form-control input-group-sm" required
-                       autocomplete="on">
+                <button class="btn btn-success"
+                        (click)="onSaveEmail(newEmail.value)">
+                  Save Changes
+                </button>
               </div>
-              <div class="form-group">
-                <label class="control-label" for="reenterNewPsw">
-                  Reenter new Password:</label>
-                <input type="password" name="password"
-                       id="reenterNewPsw" #reenterNewPsw
-                       placeholder="Reenter new password"
-                       class="form-control input-group-sm" required
-                       autocomplete="on">
-              </div>
-            </form>
+            </div>
+          </div>
+          <div class="container panel">
             <div class="form-group">
-              <button class="btn btn-success"
-                      (click)="onSavePsw(currentPsw.value, newPsw.value, reenterNewPsw.value)">
-                Save Changes
+              <button data-toggle="collapse" data-parent="#accordion"
+                      data-target="#myCollapsePsw"
+                      class="btn btn-info" id="changePsw"
+                      (click)="onChangePsw()">
+                Change Password <span class="caret"></span>
               </button>
+            </div>
+            <div id="myCollapsePsw"
+                 class="collapse col-xs-6 col-xs-offset-0 col-sm-5 col-sm-offset-0 col-lg-3 col-lg-offset-0">
+              <form>
+                <div class="form-group">
+                  <label class="control-label"
+                         for="currentPsw">Current Password:</label>
+                  <input type="password" name="password"
+                         id="currentPsw" #currentPsw
+                         placeholder="Enter current password"
+                         class="form-control input-group-sm" required
+                         autocomplete="on">
+                </div>
+                <div class="form-group">
+                  <label class="control-label"
+                         for="newPsw">New Password:</label>
+                  <input type="password" name="password"
+                         id="newPsw" #newPsw
+                         placeholder="Enter new password"
+                         class="form-control input-group-sm" required
+                         autocomplete="on">
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="reenterNewPsw">
+                    Reenter new Password:</label>
+                  <input type="password" name="password"
+                         id="reenterNewPsw" #reenterNewPsw
+                         placeholder="Reenter new password"
+                         class="form-control input-group-sm" required
+                         autocomplete="on">
+                </div>
+              </form>
+              <div class="form-group">
+                <button class="btn btn-success"
+                        (click)="onSavePsw(currentPsw.value, newPsw.value, reenterNewPsw.value)">
+                  Save Changes
+                </button>
+              </div>
             </div>
           </div>
         </div>
