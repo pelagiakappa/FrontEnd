@@ -153,12 +153,6 @@ body {
   color: white;
 }
 
-.more-less {
-  float: right;
-  /*color: #212121;*/
-  color: #6bbf49;
-}
-
 .panel-default .panel-heading, .panel-collapse .panel-body {
   border-top-color: #EEEEEE;
 }

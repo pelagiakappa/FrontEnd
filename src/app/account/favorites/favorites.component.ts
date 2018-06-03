@@ -19,6 +19,7 @@ export class FavoritesComponent implements OnInit {
     this.favorites = this.blueprintsService.getSavedBlueprints();
 
     $(document).ready(function () {
+
       $('body').on('click', function () {
         const totalItems = $('.panel-default').children('.panel-heading').length;
         const totalItemsOpen = $('.panel-default').children('.panel-heading.is-open').length;
@@ -37,10 +38,10 @@ export class FavoritesComponent implements OnInit {
       function openAll() {
         $('.open-btn').on('click', function () {
           $('.panel-default').find('.panel-heading').next('.panel-collapse').each(function () {
-            const eachNewHeight = $(this).children('.panel-body').outerHeight(true);
-            $(this).css({
-              height: eachNewHeight
-            });
+            $('.panel-collapse').css({
+              height: 91
+            })
+              .addClass('show');
           });
           $('.panel-default').find('.panel-heading').addClass('is-open');
         });
@@ -50,7 +51,8 @@ export class FavoritesComponent implements OnInit {
         $('.close-btn').on('click', function () {
           $('.panel-default').find('.panel-heading').next('.panel-collapse').css({
             height: 0
-          });
+          })
+            .removeClass('show');
           $('.panel-default').find('.panel-heading').removeClass('is-open');
         });
       }
@@ -68,12 +70,24 @@ export class FavoritesComponent implements OnInit {
             height: newHeight
           });
 
-          // remove existing classes & add class to clicked target
           if (!el.hasClass('is-open')) {
+            // close all the other
+            $('.panel-default').find('.panel-heading').next('.panel-collapse').css({
+              height: 0
+            })
+              .removeClass('show');
+            $('.panel-default').find('.panel-heading').removeClass('is-open');
+            // add class to clicked target only
             el.addClass('is-open');
           } else {
             // if we are on clicked target then remove the class
             el.removeClass('is-open');
+            // close all the other
+            $('.panel-default').find('.panel-heading').next('.panel-collapse').css({
+              height: 0
+            })
+              .removeClass('show');
+            $('.panel-default').find('.panel-heading').removeClass('is-open');
           }
         });
       }
@@ -81,20 +95,7 @@ export class FavoritesComponent implements OnInit {
       openAll();
       closeAll();
       openCloseItem();
-
-      $(document).ready(function () {
-        function toggleIcon(e) {
-          $(e.target)
-            .prev('.panel-heading')
-            .find('.more-less')
-            .toggleClass('glyphicon-plus glyphicon-minus');
-        }
-
-        $('.panel-group').on('hidden.bs.collapse', toggleIcon);
-        $('.panel-group').on('shown.bs.collapse', toggleIcon);
-      });
     });
-
   }
 
 }
