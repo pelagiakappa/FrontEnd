@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 
 import {BlueprintsService} from '../../blueprints.service';
@@ -9,7 +9,7 @@ import {AuthService} from '../../../auth/auth.service';
   templateUrl: './blueprint-details.component.html',
   styleUrls: ['./blueprint-details.component.css']
 })
-export class BlueprintDetailsComponent implements OnInit {
+export class BlueprintDetailsComponent implements OnInit, DoCheck {
   blueprintName: string;
   clickedHeart: boolean;
 
@@ -24,6 +24,9 @@ export class BlueprintDetailsComponent implements OnInit {
         this.blueprintName = params['blueprint'];
       }
     );
+  }
+
+  ngDoCheck() {
     this.blueprintsService.getSavedBlueprints().forEach(
       (bp: string) => {
         if (bp === this.blueprintName) {
