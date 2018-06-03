@@ -6,7 +6,7 @@
     <div *ngIf="!(favorites[0] === 'You haven\'t saved any items yet.')"
          class="panel-group" id="accordionFavorites">
       <div class="buttons-wrapper">
-        <i class="plus-icon"></i>
+        <i class="caret"></i>
         <div class="open-btn">
           Open all
         </div>
@@ -22,7 +22,7 @@
             <a role="button" class="active" data-toggle="collapse"
                data-parent="#accordionFavorites"
                [attr.data-target]="'#myCollapse_' + index">
-              <i class="plus-icon"></i>
+              <i class="caret"></i>
               {{favorite}}
             </a>
           </h4>

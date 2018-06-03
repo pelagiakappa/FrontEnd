@@ -39,7 +39,7 @@ export class FavoritesComponent implements OnInit {
         $('.open-btn').on('click', function () {
           $('.panel-default').find('.panel-heading').next('.panel-collapse').each(function () {
             $('.panel-collapse').css({
-              height: 91
+              height: 130
             })
               .addClass('show');
           });

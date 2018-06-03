@@ -86,6 +86,12 @@ body {
   opacity: 0;
 }
 
+.panel-group .buttons-wrapper .plus-icon {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+}
+
 .panel-group .hidden {
   display: none;
 }
@@ -103,10 +109,53 @@ body {
   position: relative;
 }
 
-.panel-group .buttons-wrapper .plus-icon {
+.panel-group .caret {
+  display: inline-block;
+  width: 8px;
+  height: 0px;
+  position: relative;
+  transition: transform 0.35s ease-out;
   position: absolute;
-  right: 10px;
-  top: 12px;
+  right: 35px;
+  top: 50%;
+  margin-top: -10px;
+}
+
+.panel-group .caret:before,
+.panel-group .caret:after {
+  content: '';
+  background: #6bbf49;
+  position: absolute;
+}
+
+.panel-group .caret:before {
+  width: 8px;
+  height: 0px;
+  margin-left: -0.5px;
+  left: 50%;
+}
+
+.panel-group .caret:after {
+  width: 8px;
+  height: 0px;
+  margin-top: -0.5px;
+  top: 50%;
+  opacity: 1;
+  transition: opacity 0.35s ease-out;
+}
+
+.panel-group .is-open .caret {
+  transform: rotate(180deg);
+}
+
+.panel-group .is-open .caret:after {
+  opacity: 0;
+}
+
+.panel-group .buttons-wrapper .caret {
+  position: absolute;
+  right: 20px;
+  top: 8px;
 }
 
 /*******************************
