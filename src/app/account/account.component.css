@@ -173,26 +173,6 @@
   margin-bottom: 17px;
 }
 
-.btn-pref .btn {
-  -webkit-border-radius: 0 !important;
-  text-decoration: none;
-  color: #005c8a;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-.btn-pref {
-  position: sticky;
-  top: 52px;
-  z-index: 5;
-}
-
-.btn-pref .btn:hover, .btn-pref .btn:focus {
-  text-decoration: none;
-  color: #fb730f;
-}
-
 .avatar {
   vertical-align: middle;
   width: 50px;
@@ -204,12 +184,51 @@
   background-color: #ecffef;
 }
 
+.btn-pref {
+  position: sticky;
+  top: 52px;
+  z-index: 5;
+}
+
+.btn-pref .btn {
+  -webkit-border-radius: 0 !important;
+  text-decoration: none;
+  /*color: #005c8a;*/
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn-pref .btn:hover, .btn-pref .btn:focus {
+  text-decoration: none;
+  /*color: #fb730f;*/
+}
+
 .btn-primary {
-  background-color: #2ba7ff;
+  /*background-color: #2ba7ff;*/
+  background-color: #41b5ff;
+  color: white;
   border-color: transparent;
 }
 
-.btn-primary:focus, .btn-primary:hover {
+.btn-primary:hover {
+  text-decoration: none;
+  color: #fb730f;
+  box-shadow: 0px 0px 20px #4bc6ff;
+}
+
+.btn-primary:focus {
+  text-decoration: none;
+  color: white;
+  box-shadow: 0px 0px 20px #4bc6ff;
+}
+
+.btn-default {
+  color: #005c8a;
+  /*background-color: #2ba7ff;*/
+}
+
+.btn-default:focus, .btn-default:hover {
   text-decoration: none;
   color: #fb730f;
   box-shadow: 0px 0px 20px #4bc6ff;
