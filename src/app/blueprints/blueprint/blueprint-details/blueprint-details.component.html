@@ -52,10 +52,23 @@
               Add to Orders
             </button>
           </div>
-          <div class="btn-group wishlist col-lg-offset-0">
-            <button type="button" class="like btn btn-default">
-              <span class="glyphicon glyphicon-heart"></span>
+          <div class="btn-group col-lg-offset-0">
+            <button *ngIf="authService.isAuthenticated(); else notAuthSignin"
+                    class="like btn btn-default"
+                    title="Save Item" type="button"
+                    (click)="onClickHeart()">
+              <span *ngIf="!clickedHeart"
+                    class="glyphicon glyphicon-heart-empty"></span>
+              <span *ngIf="clickedHeart" title="Remove Item"
+                    class="glyphicon glyphicon-heart"></span>
             </button>
+            <ng-template #notAuthSignin>
+              <button class="like btn btn-default"
+                      title="Save Item" type="button"
+                      data-toggle="modal" data-target="#myModalSignin">
+                <span class="glyphicon glyphicon-heart-empty"></span>
+              </button>
+            </ng-template>
           </div>
         </div>
       </div>
@@ -109,4 +122,8 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="modal fade" id="myModalSignin" role="dialog">
+  <app-signin></app-signin>
 </div>
