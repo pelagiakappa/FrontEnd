@@ -32,6 +32,11 @@
           <div class="panel-body">
             Blueprint description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
             sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+            <br>
+            <a class="btn btn-info pull-right" style="cursor: pointer;"
+               title="Go to {{favorite}} page"
+               [routerLink]="['/details', favorite]">{{favorite}}
+            </a>
           </div>
         </div>
       </div>
