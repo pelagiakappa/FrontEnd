@@ -156,3 +156,12 @@ body {
 .panel-default .panel-heading, .panel-collapse .panel-body {
   border-top-color: #EEEEEE;
 }
+
+h3 {
+  font-size: 18px;
+  line-height: 26px;
+  color: #1c1e1e;
+  margin: 0px 0px 15px 0px;
+  font-weight: 400;
+  font-family: 'Roboto Condensed', sans-serif;
+}

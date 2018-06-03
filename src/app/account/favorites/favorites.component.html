@@ -1,6 +1,10 @@
 <div class="container">
   <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-lg-11 col-lg-offset-0">
-    <div class="panel-group" id="accordionFavorites">
+    <div *ngIf="favorites[0] === 'You haven\'t saved any items yet.'">
+      <h3>{{favorites[0]}}</h3>
+    </div>
+    <div *ngIf="!(favorites[0] === 'You haven\'t saved any items yet.')"
+         class="panel-group" id="accordionFavorites">
       <div class="buttons-wrapper">
         <i class="plus-icon"></i>
         <div class="open-btn">

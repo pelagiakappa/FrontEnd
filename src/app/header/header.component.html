@@ -39,7 +39,11 @@
           </a>
           <ul class="dropdown-menu">
             <li *ngFor="let blueprint of blueprintsSaved">
-              <a style="cursor: pointer;" title="{{blueprint}}"
+              <a *ngIf="blueprintsSaved[0] === 'You haven\'t saved any items yet.'"
+                 title="{{blueprintsSaved[0]}}">{{blueprintsSaved[0]}}
+              </a>
+              <a *ngIf="!(blueprintsSaved[0] === 'You haven\'t saved any items yet.')"
+                 style="cursor: pointer;" title="{{blueprint}}"
                  [routerLink]="['/details', blueprint]">
                 {{blueprint}}
               </a>
