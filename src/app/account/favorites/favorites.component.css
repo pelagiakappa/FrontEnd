@@ -1,3 +1,164 @@
 .active {
-  background-color: #4791ba;
+  /*background-color: #4791ba;*/
+  background-color: #4886b0;
+}
+
+body {
+  overflow-y: scroll;
+}
+
+.panel-group {
+  font-family: Helvetica, Arial, sans-serif;
+  margin-top: 20px;
+  margin-left: 80px;
+  max-width: 800px;
+}
+
+.panel-group .panel-default {
+  padding-top: 0px;
+}
+
+.panel-group .panel-default .panel-heading {
+  display: block;
+  padding: 0px;
+  /*background: #E3E1E2;*/
+  /*color: #555;*/
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+
+.panel-group .panel-default .panel-collapse {
+  /*height: 0;*/
+  overflow: hidden;
+  transition: height .35s ease-out;
+  margin-left: 0;
+  margin-bottom: 0px;
+  /*background: #F4F4F4;*/
+}
+
+.panel-group .panel-default .panel-body {
+  padding: 25px;
+  overflow: auto;
+}
+
+.panel-group .plus-icon {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  position: relative;
+  transition: transform 0.35s ease-out;
+  position: absolute;
+  right: 35px;
+  top: 50%;
+  margin-top: -20px;
+  /*margin-top: -12px;*/
+}
+
+.panel-group .plus-icon:before,
+.panel-group .plus-icon:after {
+  content: '';
+  background: #6bbf49;
+  position: absolute;
+}
+
+.panel-group .plus-icon:before {
+  width: 2px;
+  height: 15px;
+  margin-left: -0.5px;
+  left: 50%;
+}
+
+.panel-group .plus-icon:after {
+  width: 15px;
+  height: 2px;
+  margin-top: -0.5px;
+  top: 50%;
+  opacity: 1;
+  transition: opacity 0.35s ease-out;
+}
+
+.panel-group .is-open .plus-icon {
+  transform: rotate(90deg);
+}
+
+.panel-group .is-open .plus-icon:after {
+  opacity: 0;
+}
+
+.panel-group .hidden {
+  display: none;
+}
+
+.panel-group .open-btn,
+.panel-group .close-btn {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  width: 90px;
+  margin-top: -9px;
+}
+
+.panel-group .buttons-wrapper {
+  position: relative;
+}
+
+.panel-group .buttons-wrapper .plus-icon {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+}
+
+/*******************************
+* Does not work properly if "in" is added after "collapse".
+*******************************/
+.panel-group .panel {
+  border-radius: 0;
+  box-shadow: none;
+  /*border: 0;*/
+  border-color: #EEEEEE;
+}
+
+.panel-group .panel, .panel {
+  margin-top: 0;
+}
+
+.panel-body {
+  padding: 15px 20px;
+}
+
+.panel-default .panel-heading {
+  padding: 0;
+  border-radius: 0;
+  /*color: #212121;*/
+  color: white;
+  background-color: #d5d5d5;
+  border-color: #EEEEEE;
+}
+
+.panel-title {
+  font-size: 14px;
+}
+
+.panel-title a {
+  height: 52px;
+  display: block;
+  padding: 17px 20px 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  /*color: #000000;*/
+  color: white;
+}
+
+.more-less {
+  float: right;
+  /*color: #212121;*/
+  color: #6bbf49;
+}
+
+.panel-default .panel-heading, .panel-collapse .panel-body {
+  border-top-color: #EEEEEE;
 }

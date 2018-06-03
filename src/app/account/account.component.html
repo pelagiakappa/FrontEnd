@@ -56,7 +56,7 @@
                         [flagInfo]="true" [flagError]="true"
                         [flagSuccess]="false"></app-alerts>
           </div>
-          <div id="accordion">
+          <div id="accordionButtons">
             <div class="container panel">
               <div class="form-inline">
                 <label class="control-label">Email: </label>
@@ -64,7 +64,8 @@
               </div>
               <br>
               <div class="form-group">
-                <button data-toggle="collapse" data-parent="#accordion"
+                <button data-toggle="collapse"
+                        data-parent="#accordionButtons"
                         data-target="#myCollapseEmail"
                         class="btn btn-info" id="changeEmail"
                         (click)="onChangeEmail()">
@@ -90,7 +91,8 @@
             </div>
             <div class="container panel">
               <div class="form-group">
-                <button data-toggle="collapse" data-parent="#accordion"
+                <button data-toggle="collapse"
+                        data-parent="#accordionButtons"
                         data-target="#myCollapsePsw"
                         class="btn btn-info" id="changePsw"
                         (click)="onChangePsw()">
