@@ -41,6 +41,7 @@ import {AlertDangerComponent} from './alerts/alert-danger/alert-danger.component
 import {RatingsComponent} from './account/ratings/ratings.component';
 import {PaginationComponent} from './pagination/pagination.component';
 import {PagerService} from './pagination/pager.service';
+import {CarouselComponent} from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import {PagerService} from './pagination/pager.service';
     AlertWarningComponent,
     AlertDangerComponent,
     RatingsComponent,
-    PaginationComponent
+    PaginationComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
