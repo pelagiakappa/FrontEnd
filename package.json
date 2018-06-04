@@ -26,6 +26,7 @@
     "firebase": "^5.0.3",
     "jquery": "^3.3.1",
     "rxjs": "^5.4.2",
+    "underscore": "^1.9.1",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {

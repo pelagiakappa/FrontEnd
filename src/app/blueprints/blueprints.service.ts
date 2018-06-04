@@ -1,21 +1,30 @@
+import {Blueprint} from './blueprint.module';
+
 export class BlueprintsService {
-  private blueprints = [
-    'Blueprint 1',
-    'Blueprint 2',
-    'Blueprint 3',
-    'Blueprint 4',
-    'Blueprint 5',
-    'Blueprint 6',
-    'Blueprint 7',
-    'Blueprint 8',
-    'Blueprint 9',
-    'Blueprint 10'
-  ];
+  // private blueprints = [
+  //   'Blueprint 1',
+  //   'Blueprint 2',
+  //   'Blueprint 3',
+  //   'Blueprint 4',
+  //   'Blueprint 5',
+  //   'Blueprint 6',
+  //   'Blueprint 7',
+  //   'Blueprint 8',
+  //   'Blueprint 9',
+  //   'Blueprint 10'
+  // ];
+  private blueprints: Blueprint[];
 
   private savedBlueprints = [];
 
+  pagedBps: Blueprint[];
+
+  setBlueprints(blueprints: Blueprint[]) {
+    this.blueprints = blueprints;
+  }
+
   getBlueprints() {
-    return this.blueprints.slice();
+    return this.blueprints;
   }
 
   setSavedBlueprints(blueprint: string) {

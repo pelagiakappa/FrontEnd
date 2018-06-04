@@ -39,6 +39,8 @@ import {AlertInfoComponent} from './alerts/alert-info/alert-info.component';
 import {AlertWarningComponent} from './alerts/alert-warning/alert-warning.component';
 import {AlertDangerComponent} from './alerts/alert-danger/alert-danger.component';
 import {RatingsComponent} from './account/ratings/ratings.component';
+import {PaginationComponent} from './pagination/pagination.component';
+import {PagerService} from './pagination/pager.service';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,8 @@ import {RatingsComponent} from './account/ratings/ratings.component';
     AlertInfoComponent,
     AlertWarningComponent,
     AlertDangerComponent,
-    RatingsComponent
+    RatingsComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +87,8 @@ import {RatingsComponent} from './account/ratings/ratings.component';
     BreadcrumbsService,
     DataStorageService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    PagerService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 
 import {BlueprintsService} from './blueprints.service';
+import {Blueprint} from './blueprint.module';
 
 declare var $: any;
 
@@ -10,16 +11,15 @@ declare var $: any;
   templateUrl: './blueprints.component.html',
   styleUrls: ['./blueprints.component.css']
 })
-export class BlueprintsComponent implements OnInit {
-  blueprints: string[];
+export class BlueprintsComponent implements OnInit, DoCheck {
   category: string;
+  pagedBlueprints: Blueprint[];
 
   constructor(private blueprintsService: BlueprintsService,
               private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.blueprints = this.blueprintsService.getBlueprints();
     this.route.params
       .subscribe(
         (params: Params) => {
@@ -41,6 +41,10 @@ export class BlueprintsComponent implements OnInit {
         $('#list').removeClass('active');
       });
     });
+  }
+
+  ngDoCheck() {
+    this.pagedBlueprints = this.blueprintsService.pagedBps;
   }
 
 }

@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
     });
 
     this.dataStorageService.getCategories();
+    this.dataStorageService.getBlueprints();
 
     this.locationStrategy.onPopState(() => {
       this.isPopState = true;

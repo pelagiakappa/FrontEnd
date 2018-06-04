@@ -13,12 +13,12 @@ export class CategoriesService {
 
   categoryHome = new EventEmitter<boolean>();
 
-  getCategories() {
-    return this.categories;
-  }
-
   setCategories(categories: Category[]) {
     this.categories = categories;
+  }
+
+  getCategories() {
+    return this.categories;
   }
 
 }

@@ -9,8 +9,9 @@
       </div>
     </h2>
     <div id="products" class="row list-group">
-      <app-blueprint *ngFor="let blueprint of blueprints"
-                     [blueprint]="blueprint"></app-blueprint>
+      <app-blueprint *ngFor="let blueprint of pagedBlueprints"
+                     [blueprint]="blueprint.name"></app-blueprint>
     </div>
+    <app-pagination></app-pagination>
   </div>
 </div>
