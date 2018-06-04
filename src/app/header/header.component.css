@@ -72,7 +72,8 @@
 
 .navbar-default a:focus, .navbar-default a:hover {
   text-decoration: none;
-  color: #fb730f;
+  /*color: #fb730f;*/
+  color: #102e5d;
 }
 
 .navbar-default .alignright {
