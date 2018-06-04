@@ -12,6 +12,7 @@ import {CategoriesService} from '../categories/categories.service';
 export class BreadcrumbsComponent implements OnInit {
   breadcrumbs: string[];
   category: string;
+  blueprint: string;
 
   constructor(private breadcrumbsService: BreadcrumbsService,
               private route: ActivatedRoute,
@@ -24,7 +25,16 @@ export class BreadcrumbsComponent implements OnInit {
         (params: Params) => {
           this.breadcrumbs = this.breadcrumbsService.getBreadcrumbs();
           this.category = params['name'];
-          this.breadcrumbs.push(this.category);
+          if (this.category) {
+            this.breadcrumbsService.blueprintCategory = this.category;
+            this.breadcrumbs.push(this.category);
+          }
+          this.blueprint = params['blueprint'];
+          if (this.blueprint) {
+            this.category = this.breadcrumbsService.blueprintCategory;
+            this.breadcrumbs.push(this.category);
+            this.breadcrumbs.push(this.blueprint);
+          }
         }
       );
 

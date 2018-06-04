@@ -7,6 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class BreadcrumbComponent implements OnInit {
   @Input() breadcrumb: string;
+  @Input() index: number;
 
   constructor() {
   }

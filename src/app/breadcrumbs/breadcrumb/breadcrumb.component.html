@@ -2,7 +2,13 @@
    routerLink="/" title="{{breadcrumb}}">{{breadcrumb}}
 </a>
 <ng-template #otherBreadcrumbs>
-  <a [routerLink]="['/category', breadcrumb]" title="{{breadcrumb}}">
+  <a *ngIf="index === 1"
+     [routerLink]="['/category', breadcrumb]" title="{{breadcrumb}}">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    {{breadcrumb}}
+  </a>
+  <a *ngIf="index === 2"
+     [routerLink]="['/details', breadcrumb]" title="{{breadcrumb}}">
     <span class="glyphicon glyphicon-chevron-right"></span>
     {{breadcrumb}}
   </a>

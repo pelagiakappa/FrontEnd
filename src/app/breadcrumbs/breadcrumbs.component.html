@@ -3,8 +3,8 @@
   <div class="navbar-link">
     <span class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <app-breadcrumb
-        *ngFor="let breadcrumb of breadcrumbs"
-        [breadcrumb]="breadcrumb"></app-breadcrumb>
+        *ngFor="let breadcrumb of breadcrumbs; let index = index"
+        [breadcrumb]="breadcrumb" [index]="index"></app-breadcrumb>
     </span>
   </div>
 </nav>

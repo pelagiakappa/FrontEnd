@@ -197,3 +197,8 @@ a:focus, a:hover {
   /*color: #fb730f;*/
   color: #102e5d;
 }
+
+.hideHr {
+  border: none;
+  margin: 10px;
+}
