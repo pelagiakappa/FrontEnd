@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
 
 import {BlueprintsService} from '../../blueprints/blueprints.service';
 
@@ -9,15 +9,13 @@ declare var $: any;
   templateUrl: './favorites.component.html',
   styleUrls: ['./favorites.component.css']
 })
-export class FavoritesComponent implements OnInit {
+export class FavoritesComponent implements OnInit, DoCheck {
   favorites: string[];
 
   constructor(private blueprintsService: BlueprintsService) {
   }
 
   ngOnInit() {
-    this.favorites = this.blueprintsService.getSavedBlueprints();
-
     $(document).ready(function () {
 
       $('body').on('click', function () {
@@ -96,6 +94,14 @@ export class FavoritesComponent implements OnInit {
       closeAll();
       openCloseItem();
     });
+  }
+
+  ngDoCheck() {
+    this.favorites = this.blueprintsService.getSavedBlueprints();
+  }
+
+  onRemove(selectedFavorite: string) {
+    this.blueprintsService.setSavedBlueprints(selectedFavorite);
   }
 
 }

@@ -33,9 +33,13 @@
             Blueprint description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
             sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
             <br>
+            <button class="btn btn-danger pull-left" title="Remove Item"
+                    type="button" (click)="onRemove(favorite)">Remove
+              <span class="glyphicon glyphicon-heart"></span>
+            </button>
             <a class="btn btn-info pull-right" style="cursor: pointer;"
                title="Go to {{favorite}} page"
-               [routerLink]="['/details', favorite]">{{favorite}}
+               [routerLink]="['/details', favorite]">Go to {{favorite}}
             </a>
           </div>
         </div>
