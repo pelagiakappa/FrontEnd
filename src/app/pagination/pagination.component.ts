@@ -40,6 +40,9 @@ export class PaginationComponent implements OnInit {
     this.pagedBlueprints = this.allBlueprints.slice(this.pager.startIndex, this.pager.endIndex + 1);
 
     this.blueprintsService.pagedBps = this.pagedBlueprints;
+
+    // go to the top of the page
+    window.scrollTo(0, 0);
   }
 
 }
