@@ -121,6 +121,7 @@ export class AccountComponent implements OnInit, DoCheck {
   }
 
   onChangeEmail() {
+    $('#changePsw').removeClass('dropup');
     if ($('#changeEmail').hasClass('dropup')) {
       $('#changeEmail').removeClass('dropup');
     } else {
@@ -129,6 +130,7 @@ export class AccountComponent implements OnInit, DoCheck {
   }
 
   onChangePsw() {
+    $('#changeEmail').removeClass('dropup');
     if ($('#changePsw').hasClass('dropup')) {
       $('#changePsw').removeClass('dropup');
     } else {
