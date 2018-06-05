@@ -97,12 +97,12 @@
 .right {
   float: right;
   border-bottom: 2px solid #0a5971;
-  box-shadow: 0px 0px 20px #4bc6ff;
   color: white;
 }
 
 .right:focus, .right:hover {
   color: white;
+  box-shadow: 0px 0px 20px #4bc6ff;
 }
 
 .ratings {
