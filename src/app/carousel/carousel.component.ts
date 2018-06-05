@@ -14,7 +14,7 @@ export class CarouselComponent implements OnInit {
 
   ngOnInit() {
     $(document).ready(function () {
-      $('#Carousel').carousel({
+      $('#myCarousel').carousel({
         interval: 5000
       });
     });
