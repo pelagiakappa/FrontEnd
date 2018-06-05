@@ -42,6 +42,8 @@ import {RatingsComponent} from './account/ratings/ratings.component';
 import {PaginationComponent} from './pagination/pagination.component';
 import {PagerService} from './pagination/pager.service';
 import {CarouselComponent} from './carousel/carousel.component';
+import {FiveStarsService} from './carousel/five-stars.service';
+import {CarouselItemComponent} from './carousel/carousel-item/carousel-item.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,8 @@ import {CarouselComponent} from './carousel/carousel.component';
     AlertDangerComponent,
     RatingsComponent,
     PaginationComponent,
-    CarouselComponent
+    CarouselComponent,
+    CarouselItemComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +93,8 @@ import {CarouselComponent} from './carousel/carousel.component';
     DataStorageService,
     AuthService,
     AuthGuard,
-    PagerService
+    PagerService,
+    FiveStarsService
   ],
   bootstrap: [AppComponent]
 })

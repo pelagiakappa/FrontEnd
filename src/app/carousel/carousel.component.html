@@ -10,130 +10,39 @@
           <li data-target="#myCarousel" data-slide-to="1"></li>
           <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
-
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-
           <div class="item active">
             <div class="row">
-              <div class="col-xs-3 col-sm-3 col-lg-3">
-                <a class="thumbnail">
-                  <img src="../assets/images/blue.jpg" alt="Image"
-                       style="max-width:100%;">
-                  <div class="carousel-caption"></div>
-                  <div class="info">
-                    <div class="row">
-                      <div class="price col-xs-12 col-sm-12 col-lg-12">
-                        <h5>Sample Product</h5>
-                      </div>
-                      <div class="ratings col-xs-12 col-sm-8 col-lg-8">
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                      </div>
-                    </div>
-                    <div class="separator clear-left">
-                      <p class="btn-add">
-                        <a>Add to Orders</a>
-                      </p>
-                      <p class="btn-details">
-                        <a>» More details</a>
-                      </p>
-                    </div>
-                    <div class="clearfix"></div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-xs-3 col-sm-3 col-lg-3">
-                <a class="thumbnail">
-                  <img src="http://placehold.it/250x250" alt="Image"
-                       style="max-width:100%;">
-                </a>
-              </div>
-              <div class="col-xs-3 col-sm-3 col-lg-3">
-                <a class="thumbnail">
-                  <img src="http://placehold.it/250x250" alt="Image"
-                       style="max-width:100%;">
-                </a>
-              </div>
-              <div class="col-xs-3 col-sm-3 col-lg-3">
-                <a class="thumbnail">
-                  <img src="http://placehold.it/250x250" alt="Image"
-                       style="max-width:100%;">
-                </a>
-              </div>
+              <app-carousel-item
+                *ngFor="let blueprint of firstFourBlueprints"
+                [blueprint]="blueprint.name">
+              </app-carousel-item>
             </div>
           </div>
-
           <div class="item">
             <div class="row">
-              <div class="col-xs-3 col-sm-3 col-lg-3">
-                <a class="thumbnail">
-                  <img src="http://placehold.it/250x250" alt="Image"
-                       style="max-width:100%;">
-                </a>
-              </div>
-              <div class="col-xs-3 col-sm-3 col-lg-3">
-                <a class="thumbnail">
-                  <img src="http://placehold.it/250x250" alt="Image"
-                       style="max-width:100%;">
-                </a>
-              </div>
-              <div class="col-xs-3 col-sm-3 col-lg-3">
-                <a class="thumbnail">
-                  <img src="http://placehold.it/250x250" alt="Image"
-                       style="max-width:100%;">
-                </a>
-              </div>
-              <div class="col-xs-3 col-sm-3 col-lg-3">
-                <a class="thumbnail">
-                  <img src="http://placehold.it/250x250" alt="Image"
-                       style="max-width:100%;">
-                </a>
-              </div>
+              <app-carousel-item
+                *ngFor="let blueprint of nextFourBlueprints"
+                [blueprint]="blueprint.name">
+              </app-carousel-item>
             </div>
           </div>
-
           <div class="item">
             <div class="row">
-              <div class="col-xs-3 col-sm-3 col-lg-3">
-                <a class="thumbnail">
-                  <img src="http://placehold.it/250x250" alt="Image"
-                       style="max-width:100%;">
-                </a>
-              </div>
-              <div class="col-xs-3 col-sm-3 col-lg-3">
-                <a class="thumbnail">
-                  <img src="http://placehold.it/250x250" alt="Image"
-                       style="max-width:100%;">
-                </a>
-              </div>
-              <div class="col-xs-3 col-sm-3 col-lg-3">
-                <a class="thumbnail">
-                  <img src="http://placehold.it/250x250" alt="Image"
-                       style="max-width:100%;">
-                </a>
-              </div>
-              <div class="col-xs-3 col-sm-3 col-lg-3">
-                <a class="thumbnail">
-                  <img src="http://placehold.it/250x250" alt="Image"
-                       style="max-width:100%;">
-                </a>
-              </div>
+              <app-carousel-item
+                *ngFor="let blueprint of finalFourBlueprints"
+                [blueprint]="blueprint.name">
+              </app-carousel-item>
             </div>
           </div>
-
         </div>
-
         <!-- Left and right controls -->
         <a data-slide="prev" data-target="#myCarousel"
            class="left carousel-control">‹</a>
         <a data-slide="next" data-target="#myCarousel"
            class="right carousel-control">›</a>
       </div>
-
     </div>
   </div>
 </div>
