@@ -1,10 +1,8 @@
-import {Blueprint} from '../../blueprints/blueprint.module';
-
 export class OrdersService {
-  private orders: Blueprint[];
+  private orders: string[];
 
-  setOrders(order: Blueprint) {
-    this.orders.push(order);
+  setOrders(blueprint: string) {
+    this.orders.push(blueprint);
   }
 
   getOrders() {

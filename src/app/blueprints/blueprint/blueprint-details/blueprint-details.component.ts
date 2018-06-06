@@ -3,6 +3,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 
 import {BlueprintsService} from '../../blueprints.service';
 import {AuthService} from '../../../auth/auth.service';
+import {OrdersService} from '../../../account/orders/orders.service';
 
 @Component({
   selector: 'app-blueprint-details',
@@ -19,7 +20,8 @@ export class BlueprintDetailsComponent implements OnInit, DoCheck {
   constructor(private route: ActivatedRoute,
               private blueprintsService: BlueprintsService,
               public authService: AuthService,
-              private router: Router) {
+              private router: Router,
+              private ordersService: OrdersService) {
   }
 
   ngOnInit() {
@@ -74,6 +76,10 @@ export class BlueprintDetailsComponent implements OnInit, DoCheck {
 
   onRatings() {
     this.router.navigate(['/details', this.blueprintName], {fragment: 'ratings'});
+  }
+
+  onAddOrders() {
+    this.ordersService.setOrders(this.blueprintName);
   }
 
 }

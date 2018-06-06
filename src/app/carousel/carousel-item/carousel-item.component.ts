@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 
 import {BlueprintsService} from '../../blueprints/blueprints.service';
 import {AuthService} from '../../auth/auth.service';
+import {OrdersService} from '../../account/orders/orders.service';
 
 @Component({
   selector: 'app-carousel-item',
@@ -13,7 +14,8 @@ export class CarouselItemComponent implements OnInit {
   clickedHeart: boolean;
 
   constructor(private blueprintsService: BlueprintsService,
-              public authService: AuthService) {
+              public authService: AuthService,
+              private ordersService: OrdersService) {
   }
 
   ngOnInit() {
@@ -29,6 +31,10 @@ export class CarouselItemComponent implements OnInit {
   onClickHeart() {
     this.clickedHeart = !this.clickedHeart;
     this.blueprintsService.setSavedBlueprints(this.blueprint);
+  }
+
+  onAddOrders() {
+    this.ordersService.setOrders(this.blueprint);
   }
 
 }
