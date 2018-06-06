@@ -23,7 +23,8 @@
           <div class="product-title col-lg-offset-5">
             <h2>
               <strong>
-                <a title="{{blueprintName}}"
+                <a [routerLink]="['/details', blueprintName]"
+                   fragment="information" title="{{blueprintName}}"
                    style="cursor: pointer;">{{blueprintName}}</a>
               </strong>
             </h2>
@@ -35,11 +36,14 @@
           <br>
           <div class="rating col-lg-offset-5">
             <div class="product-rating">
-              <span class="glyphicon glyphicon-star gold"></span>
-              <span class="glyphicon glyphicon-star gold"></span>
-              <span class="glyphicon glyphicon-star gold"></span>
-              <span class="glyphicon glyphicon-star gold"></span>
-              <span class="glyphicon glyphicon-star-empty"></span>
+              <a [routerLink]="['/details', blueprintName]"
+                 fragment="ratings">
+                <span class="glyphicon glyphicon-star gold"></span>
+                <span class="glyphicon glyphicon-star gold"></span>
+                <span class="glyphicon glyphicon-star gold"></span>
+                <span class="glyphicon glyphicon-star gold"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+              </a>
               <br>
               <!--<span class="review">41 reviews</span>-->
             </div>
@@ -77,24 +81,28 @@
     <div class="container-fluid">
       <div class="col-lg-12 product-info">
         <ul id="myTab" class="nav nav-tabs nav_tabs">
-          <li class="active">
-            <a style="cursor: pointer;" title="description"
+          <li [ngClass]="{active: description}">
+            <a (click)="onDescription()"
+               style="cursor: pointer;" title="description"
                data-target="#service-one" data-toggle="tab">
               DESCRIPTION</a>
           </li>
-          <li>
-            <a style="cursor: pointer;" title="information"
+          <li [ngClass]="{active: information}">
+            <a (click)="onInformation()"
+               style="cursor: pointer;" title="information"
                data-target="#service-two" data-toggle="tab">
               PRODUCT INFO</a>
           </li>
-          <li>
-            <a style="cursor: pointer;" title="ratings"
+          <li [ngClass]="{active: ratings}">
+            <a (click)="onRatings()"
+               style="cursor: pointer;" title="ratings"
                data-target="#service-three" data-toggle="tab">
               RATINGS</a>
           </li>
         </ul>
         <div id="myTabContent" class="tab-content">
-          <div class="tab-pane fade in active" id="service-one">
+          <div [ngClass]="{active: description}"
+               class="tab-pane fade in" id="service-one">
             <section class="container">
               <h3>{{blueprintName}} Features:</h3>
               <li>...</li>
@@ -104,7 +112,8 @@
               <li>...</li>
             </section>
           </div>
-          <div class="tab-pane fade" id="service-two">
+          <div [ngClass]="{active: information}"
+               class="tab-pane fade in" id="service-two">
             <section class="container">
               <h3>{{blueprintName}} Info:</h3>
               <li>...</li>
@@ -114,7 +123,8 @@
               <li>...</li>
             </section>
           </div>
-          <div class="tab-pane fade" id="service-three">
+          <div [ngClass]="{active: ratings}"
+               class="tab-pane fade in" id="service-three">
             <section class="container">
               <h3>{{blueprintName}} Ratings:</h3>
               <li>...</li>

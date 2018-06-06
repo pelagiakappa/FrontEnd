@@ -33,6 +33,14 @@
   font-size: 15px;
 }
 
+.product-rating a {
+  text-decoration: none;
+  color: #e47b00;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
 .product-title {
   font-size: 20px;
 }
