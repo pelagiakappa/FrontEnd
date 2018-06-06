@@ -17,6 +17,13 @@ export class CarouselItemComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.blueprintsService.getSavedBlueprints().forEach(
+      (bp: string) => {
+        if (bp === this.blueprint) {
+          this.clickedHeart = true;
+        }
+      }
+    );
   }
 
   onClickHeart() {
