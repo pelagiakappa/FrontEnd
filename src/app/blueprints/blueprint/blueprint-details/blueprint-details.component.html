@@ -37,7 +37,7 @@
           <div class="rating col-lg-offset-5">
             <div class="product-rating">
               <a [routerLink]="['/details', blueprintName]"
-                 fragment="ratings">
+                 fragment="ratings" title="View the Ratings">
                 <span class="glyphicon glyphicon-star gold"></span>
                 <span class="glyphicon glyphicon-star gold"></span>
                 <span class="glyphicon glyphicon-star gold"></span>
@@ -58,7 +58,9 @@
                     title="Add to Orders" type="button"
                     (click)="onAddOrders()">
               <span *ngIf="!clickedAddOrders">Add to Orders</span>
-              <span *ngIf="clickedAddOrders">Remove from Orders</span>
+              <span *ngIf="clickedAddOrders"
+                    title="Remove from Orders">
+                Remove from Orders</span>
             </button>
             <ng-template #notAuthSigninOrder>
               <button class="btn btn-success"
@@ -94,19 +96,19 @@
         <ul id="myTab" class="nav nav-tabs nav_tabs">
           <li [ngClass]="{active: description}">
             <a (click)="onDescription()"
-               style="cursor: pointer;" title="description"
+               style="cursor: pointer;" title="Description"
                data-target="#service-one" data-toggle="tab">
               DESCRIPTION</a>
           </li>
           <li [ngClass]="{active: information}">
             <a (click)="onInformation()"
-               style="cursor: pointer;" title="information"
+               style="cursor: pointer;" title="Information"
                data-target="#service-two" data-toggle="tab">
               PRODUCT INFO</a>
           </li>
           <li [ngClass]="{active: ratings}">
             <a (click)="onRatings()"
-               style="cursor: pointer;" title="ratings"
+               style="cursor: pointer;" title="Ratings"
                data-target="#service-three" data-toggle="tab">
               RATINGS</a>
           </li>
