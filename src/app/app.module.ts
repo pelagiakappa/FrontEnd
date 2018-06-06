@@ -44,6 +44,7 @@ import {PagerService} from './pagination/pager.service';
 import {CarouselComponent} from './carousel/carousel.component';
 import {FiveStarsService} from './carousel/five-stars.service';
 import {CarouselItemComponent} from './carousel/carousel-item/carousel-item.component';
+import {OrdersService} from './account/orders/orders.service';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import {CarouselItemComponent} from './carousel/carousel-item/carousel-item.comp
     AuthService,
     AuthGuard,
     PagerService,
-    FiveStarsService
+    FiveStarsService,
+    OrdersService
   ],
   bootstrap: [AppComponent]
 })
