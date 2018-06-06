@@ -41,7 +41,7 @@
               <span class="glyphicon glyphicon-star gold"></span>
               <span class="glyphicon glyphicon-star-empty"></span>
               <br>
-              <span class="review">41 reviews</span>
+              <!--<span class="review">41 reviews</span>-->
             </div>
           </div>
           <!--<hr>-->
@@ -78,13 +78,19 @@
       <div class="col-lg-12 product-info">
         <ul id="myTab" class="nav nav-tabs nav_tabs">
           <li class="active">
-            <a href="#service-one" data-toggle="tab">DESCRIPTION</a>
+            <a style="cursor: pointer;" title="description"
+               data-target="#service-one" data-toggle="tab">
+              DESCRIPTION</a>
           </li>
           <li>
-            <a href="#service-two" data-toggle="tab">PRODUCT INFO</a>
+            <a style="cursor: pointer;" title="information"
+               data-target="#service-two" data-toggle="tab">
+              PRODUCT INFO</a>
           </li>
           <li>
-            <a href="#service-three" data-toggle="tab">REVIEWS</a>
+            <a style="cursor: pointer;" title="ratings"
+               data-target="#service-three" data-toggle="tab">
+              RATINGS</a>
           </li>
         </ul>
         <div id="myTabContent" class="tab-content">
@@ -110,7 +116,7 @@
           </div>
           <div class="tab-pane fade" id="service-three">
             <section class="container">
-              <h3>{{blueprintName}} Reviews:</h3>
+              <h3>{{blueprintName}} Ratings:</h3>
               <li>...</li>
               <li>...</li>
               <li>...</li>
