@@ -41,6 +41,11 @@ var {
 
 .img-sm {
   width: 90px;
-  max-height: 75px;
+  height: 85px;
+  /*max-height: 75px;*/
   object-fit: cover;
+}
+
+.inline {
+  display: inline;
 }
