@@ -1,5 +1,5 @@
 export class OrdersService {
-  private orders: string[];
+  private orders = [''];
 
   setOrders(blueprint: string) {
     this.orders.push(blueprint);
