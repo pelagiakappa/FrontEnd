@@ -49,3 +49,17 @@ var {
 .inline {
   display: inline;
 }
+
+a {
+  text-decoration: none;
+  color: #005c8a;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+a:focus, a:hover {
+  text-decoration: none;
+  /*color: #fb730f;*/
+  color: #102e5d;
+}

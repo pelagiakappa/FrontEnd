@@ -13,23 +13,26 @@
         <tbody>
         <tr *ngFor="let blueprint of orders">
           <td>
-            <figure class="media">
-              <div class="img-wrap inline">
-                <img src="../assets/images/blue.jpg"
-                     class="img-thumbnail img-sm">
-              </div>
-              <figcaption class="media-body inline">
-                <h4 class="title inline">{{blueprint}}</h4>
-                <dl class="param param-inline small inline">
-                  <dt>...</dt>
-                  <dd>...</dd>
-                </dl>
-                <dl class="param param-inline small inline">
-                  <dt>...</dt>
-                  <dd>...</dd>
-                </dl>
-              </figcaption>
-            </figure>
+            <a [routerLink]="['/details', blueprint]"
+               style="cursor: pointer;" title="{{blueprint}}">
+              <figure class="media">
+                <div class="img-wrap inline">
+                  <img src="../assets/images/blue.jpg"
+                       class="img-thumbnail img-sm">
+                </div>
+                <figcaption class="media-body inline">
+                  <h4 class="title inline">{{blueprint}}</h4>
+                  <dl class="param param-inline small inline">
+                    <dt>...</dt>
+                    <dd>...</dd>
+                  </dl>
+                  <dl class="param param-inline small inline">
+                    <dt>...</dt>
+                    <dd>...</dd>
+                  </dl>
+                </figcaption>
+              </figure>
+            </a>
           </td>
           <td>
             <select class="form-control">
