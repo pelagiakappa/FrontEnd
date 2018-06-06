@@ -36,8 +36,18 @@
         </a>
       </div>
       <div class="separator clear-left">
-        <p class="btn-add" (click)="onAddOrders()">
-          <a>Add to Orders</a>
+        <p class="btn-add">
+          <a *ngIf="authService.isAuthenticated(); else notAuthSigninOrder"
+             title="Add to Orders" role="button"
+             (click)="onAddOrders()">
+            Add to Orders
+          </a>
+          <ng-template #notAuthSigninOrder>
+            <a title="Add to Orders" role="button"
+               data-toggle="modal" data-target="#myModalSignin">
+              Add to Orders
+            </a>
+          </ng-template>
         </p>
         <p class="btn-details">
           <a title="{{blueprint}}" style="cursor: pointer;"

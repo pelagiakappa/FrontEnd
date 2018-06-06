@@ -42,8 +42,19 @@
           </a>
         </div>
         <div class="col-xs-12 col-md-6">
-          <a class="btn btn-success right"
-             (click)="onAddOrders()">Add to Orders</a>
+          <a *ngIf="authService.isAuthenticated(); else notAuthSigninOrder"
+             class="btn btn-success right"
+             title="Add to Orders" role="button"
+             (click)="onAddOrders()">
+            Add to Orders
+          </a>
+          <ng-template #notAuthSigninOrder>
+            <a class="btn btn-success right"
+               title="Add to Orders" role="button"
+               data-toggle="modal" data-target="#myModalSignin">
+              Add to Orders
+            </a>
+          </ng-template>
         </div>
       </div>
     </div>

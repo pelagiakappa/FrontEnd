@@ -53,10 +53,19 @@
           <!--<div class="product-stock">In Stock</div>-->
           <hr class="col-lg-offset-5">
           <div class="btn-group cart col-lg-offset-1">
-            <button type="button" class="btn btn-success"
+            <button *ngIf="authService.isAuthenticated(); else notAuthSigninOrder"
+                    class="btn btn-success"
+                    title="Add to Orders" type="button"
                     (click)="onAddOrders()">
               Add to Orders
             </button>
+            <ng-template #notAuthSigninOrder>
+              <button class="btn btn-success"
+                      title="Add to Orders" type="button"
+                      data-toggle="modal" data-target="#myModalSignin">
+                Add to Orders
+              </button>
+            </ng-template>
           </div>
           <div class="btn-group col-lg-offset-0">
             <button *ngIf="authService.isAuthenticated(); else notAuthSignin"
