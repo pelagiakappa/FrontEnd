@@ -5,28 +5,28 @@
         <thead class="text-muted">
         <tr>
           <th scope="col">Product</th>
-          <th scope="col" width="120">Quantity</th>
-          <th scope="col" width="120">Price</th>
-          <th scope="col" width="200" class="text-right">Action</th>
+          <th scope="col" width="25">Quantity</th>
+          <th scope="col" width="80">Price</th>
+          <th scope="col" width="100" class="text-right">Action</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
+        <tr *ngFor="let blueprint of orders">
           <td>
             <figure class="media">
               <div class="img-wrap">
-                <img src="http://bootstrap-ecommerce.com/main/images/items/2.jpg"
+                <img src="../assets/images/blue.jpg"
                      class="img-thumbnail img-sm">
               </div>
               <figcaption class="media-body">
-                <h6 class="title text-truncate">Product name goes here </h6>
+                <h6 class="title text-truncate">{{blueprint}}</h6>
                 <dl class="param param-inline small">
-                  <dt>Size:</dt>
-                  <dd>XXL</dd>
+                  <dt>...</dt>
+                  <dd>...</dd>
                 </dl>
                 <dl class="param param-inline small">
-                  <dt>Color:</dt>
-                  <dd>Orange color</dd>
+                  <dt>...</dt>
+                  <dd>...</dd>
                 </dl>
               </figcaption>
             </figure>
@@ -41,107 +41,15 @@
           </td>
           <td>
             <div class="price-wrap">
-              <var class="price">USD 145</var>
-              <small class="text-muted">(USD5 each)</small>
+              <var class="price">$ 145</var>
             </div>
           </td>
           <td class="text-right">
-            <a title="" class="btn btn-outline-success"
-               data-toggle="tooltip"
-               data-original-title="Save to Wishlist">
-              <i class="fa fa-heart"></i>
-            </a>
-            <a class="btn btn-outline-danger"> × Remove</a>
             <button type="button"
-                    class="btn btn-outline-danger btn-xs">
-              <i class="fa fa-trash" aria-hidden="true"></i>
+                    class="btn btn-danger btn-sm">
+              <span class="glyphicon glyphicon-trash"
+                    aria-hidden="true"></span>
             </button>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <figure class="media">
-              <div class="img-wrap">
-                <img src="http://bootstrap-ecommerce.com/main/images/items/1.jpg"
-                     class="img-thumbnail img-sm">
-              </div>
-              <figcaption class="media-body">
-                <h6 class="title text-truncate">Product name goes here </h6>
-                <dl class="param param-inline small">
-                  <dt>Size:</dt>
-                  <dd>XXL</dd>
-                </dl>
-                <dl class="param param-inline small">
-                  <dt>Color:</dt>
-                  <dd>Orange color</dd>
-                </dl>
-              </figcaption>
-            </figure>
-          </td>
-          <td>
-            <select class="form-control">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-            </select>
-          </td>
-          <td>
-            <div class="price-wrap">
-              <var class="price">USD 35</var>
-              <small class="text-muted">(USD10 each)</small>
-            </div>
-          </td>
-          <td class="text-right">
-            <a title="" class="btn btn-outline-success"
-               data-toggle="tooltip"
-               data-original-title="Save to Wishlist">
-              <i class="fa fa-heart"></i>
-            </a>
-            <a class="btn btn-outline-danger btn-round"> × Remove</a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <figure class="media">
-              <div class="img-wrap">
-                <img src="http://bootstrap-ecommerce.com/main/images/items/2.jpg"
-                     class="img-thumbnail img-sm">
-              </div>
-              <figcaption class="media-body">
-                <h6 class="title text-truncate">Product name goes here </h6>
-                <dl class="param param-inline small">
-                  <dt>Size:</dt>
-                  <dd>XXL</dd>
-                </dl>
-                <dl class="param param-inline small">
-                  <dt>Color:</dt>
-                  <dd>Orange color</dd>
-                </dl>
-              </figcaption>
-            </figure>
-          </td>
-          <td>
-            <select class="form-control">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-            </select>
-          </td>
-          <td>
-            <div class="price-wrap">
-              <var class="price">USD 45</var>
-              <small class="text-muted">(USD15 each)</small>
-            </div>
-          </td>
-          <td class="text-right">
-            <a title="" class="btn btn-outline-success"
-               data-toggle="tooltip"
-               data-original-title="Save to Wishlist">
-              <i class="fa fa-heart"></i>
-            </a>
-            <a class="btn btn-outline-danger btn-round"> × Remove</a>
           </td>
         </tr>
         </tbody>
