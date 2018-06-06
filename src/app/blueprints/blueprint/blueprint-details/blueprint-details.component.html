@@ -57,7 +57,8 @@
                     class="btn btn-success"
                     title="Add to Orders" type="button"
                     (click)="onAddOrders()">
-              Add to Orders
+              <span *ngIf="!clickedAddOrders">Add to Orders</span>
+              <span *ngIf="clickedAddOrders">Remove from Orders</span>
             </button>
             <ng-template #notAuthSigninOrder>
               <button class="btn btn-success"

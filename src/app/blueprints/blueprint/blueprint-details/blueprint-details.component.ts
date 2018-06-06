@@ -16,6 +16,7 @@ export class BlueprintDetailsComponent implements OnInit, DoCheck {
   description = true;
   information = false;
   ratings = false;
+  clickedAddOrders: boolean;
 
   constructor(private route: ActivatedRoute,
               private blueprintsService: BlueprintsService,
@@ -59,6 +60,13 @@ export class BlueprintDetailsComponent implements OnInit, DoCheck {
         }
       }
     );
+    this.ordersService.getOrders().forEach(
+      (bp: string) => {
+        if (bp === this.blueprintName) {
+          this.clickedAddOrders = true;
+        }
+      }
+    );
   }
 
   onClickHeart() {
@@ -79,6 +87,7 @@ export class BlueprintDetailsComponent implements OnInit, DoCheck {
   }
 
   onAddOrders() {
+    this.clickedAddOrders = !this.clickedAddOrders;
     this.ordersService.setOrders(this.blueprintName);
   }
 

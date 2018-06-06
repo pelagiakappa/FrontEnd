@@ -12,6 +12,7 @@ import {OrdersService} from '../../account/orders/orders.service';
 export class CarouselItemComponent implements OnInit {
   @Input() blueprint: string;
   clickedHeart: boolean;
+  clickedAddOrders: boolean;
 
   constructor(private blueprintsService: BlueprintsService,
               public authService: AuthService,
@@ -26,6 +27,13 @@ export class CarouselItemComponent implements OnInit {
         }
       }
     );
+    this.ordersService.getOrders().forEach(
+      (bp: string) => {
+        if (bp === this.blueprint) {
+          this.clickedAddOrders = true;
+        }
+      }
+    );
   }
 
   onClickHeart() {
@@ -34,6 +42,7 @@ export class CarouselItemComponent implements OnInit {
   }
 
   onAddOrders() {
+    this.clickedAddOrders = !this.clickedAddOrders;
     this.ordersService.setOrders(this.blueprint);
   }
 
