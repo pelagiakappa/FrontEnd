@@ -1,3 +1,49 @@
-<p>
-  ratings works!
-</p>
+<div class="container">
+  <div class="col-xs-10 col-xs-offset-0 col-sm-9 col-sm-offset-0 col-lg-11 col-lg-offset-0">
+    <div *ngIf="favorites[0] === 'You haven\'t saved any items yet.'">
+      <h3>You haven't rated any items yet.</h3>
+    </div>
+    <div *ngIf="!(favorites[0] === 'You haven\'t saved any items yet.')"
+         class="panel-group" id="accordionFavorites">
+      <div class="buttons-wrapper">
+        <i class="caret"></i>
+        <div class="open-btn">
+          Open all
+        </div>
+        <div class="close-btn hidden">
+          Close all
+        </div>
+      </div>
+      <br>
+      <div *ngFor="let favorite of favorites; let index = index;"
+           class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a role="button" class="active" data-toggle="collapse"
+               data-parent="#accordionFavorites"
+               [attr.data-target]="'#myCollapse_' + index">
+              <i class="caret"></i>
+              {{favorite}}
+            </a>
+          </h4>
+        </div>
+        <div [attr.id]="'myCollapse_'+ index"
+             class="panel-collapse collapse">
+          <div class="panel-body">
+            Blueprint description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+            <br>
+            <button class="btn btn-danger pull-left" title="Remove Item"
+                    type="button" (click)="onRemove(favorite)">Remove
+              <span class="glyphicon glyphicon-heart"></span>
+            </button>
+            <a class="btn btn-info pull-right" style="cursor: pointer;"
+               title="Go to {{favorite}} page"
+               [routerLink]="['/details', favorite]">Go to {{favorite}}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
