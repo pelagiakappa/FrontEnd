@@ -45,6 +45,8 @@ import {CarouselComponent} from './carousel/carousel.component';
 import {FiveStarsService} from './carousel/five-stars.service';
 import {CarouselItemComponent} from './carousel/carousel-item/carousel-item.component';
 import {OrdersService} from './account/orders/orders.service';
+import {BlueprintRatingsComponent} from './blueprints/blueprint/blueprint-ratings/blueprint-ratings.component';
+import {BlueprintReviewComponent} from './blueprints/blueprint/blueprint-review/blueprint-review.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +80,9 @@ import {OrdersService} from './account/orders/orders.service';
     RatingsComponent,
     PaginationComponent,
     CarouselComponent,
-    CarouselItemComponent
+    CarouselItemComponent,
+    BlueprintRatingsComponent,
+    BlueprintReviewComponent
   ],
   imports: [
     BrowserModule,
