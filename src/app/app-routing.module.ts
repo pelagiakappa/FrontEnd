@@ -9,13 +9,15 @@ import {FavoritesComponent} from './account/favorites/favorites.component';
 import {OrdersComponent} from './account/orders/orders.component';
 import {RatingsComponent} from './account/ratings/ratings.component';
 import {AuthGuard} from './auth/auth-guard.service';
+import {FiltersComponent} from './filters/filters.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'category/:name', component: CategorySelectedComponent},
   {
-    path: 'category/:name', component: CategorySelectedComponent,
+    path: 'filters/:name', component: FiltersComponent,
     children: [
-      {path: ':filter', redirectTo: 'category/:name'} // TODO
+      {path: ':filter', redirectTo: 'filters/:name'} // TODO
     ]
   },
   {path: 'details/:blueprint', component: BlueprintDetailsComponent},

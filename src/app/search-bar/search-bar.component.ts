@@ -28,7 +28,7 @@ export class SearchBarComponent implements OnInit, DoCheck {
   onSearchCategory() {
     for (const categoryName of this.categories) {
       if (categoryName.name.toUpperCase() === this.inputCategory.nativeElement.value.toUpperCase()) {
-        this.router.navigate(['/category', categoryName.name]);
+        this.router.navigate(['/filters', categoryName.name]);
       }
     }
   }
