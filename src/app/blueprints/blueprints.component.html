@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0 col-lg-12 col-lg-offset-0">
-    <h2>{{category}}
+    <h2>{{category}} Results:
       <div class="btn-group pull-right">
         <a id="grid" class="btn btn-default btn-sm active" title="Grid">
           <span class="glyphicon glyphicon-th"></span>Grid</a>
@@ -8,6 +8,13 @@
           <span class="glyphicon glyphicon-th-list"></span>List</a>
       </div>
     </h2>
+    <br>
+    <p>To refine your search
+      <a title="Refine"
+         [routerLink]="['/filters', category]">click here</a>.
+      <a class="cd-filter-trigger pull-right" title="Refine"
+         [routerLink]="['/filters', category]">REFINE</a>
+    </p>
     <div id="products" class="row list-group">
       <app-blueprint *ngFor="let blueprint of pagedBlueprints"
                      [blueprint]="blueprint.name"></app-blueprint>

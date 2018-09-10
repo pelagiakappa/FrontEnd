@@ -1,3 +1,42 @@
 .glyphicon-th, .glyphicon-th-list {
   margin-right: 5px;
 }
+
+.cd-filter-trigger {
+  /*position: absolute;*/
+  top: 0;
+  left: 0;
+  height: 30px;
+  line-height: 30px;
+  width: 60px;
+  /* image replacement */
+  overflow: hidden;
+  text-indent: 100%;
+  color: transparent;
+  white-space: nowrap;
+  background: transparent url("https://entrusters.com/templates/yoo_moustache/html/com_entrusters_shop/products/ui-img/cd-icon-filter.svg") no-repeat center center;
+  z-index: 3;
+}
+
+@media only screen and (min-width: 1170px) {
+  .cd-filter-trigger {
+    width: auto;
+    left: 2%;
+    text-indent: 0;
+    color: #7b7b7b;
+    text-transform: uppercase;
+    padding-left: 24px;
+    background-position: left center;
+    -webkit-transition: color 0.3s;
+    -moz-transition: color 0.3s;
+    transition: color 0.3s;
+  }
+
+  .cd-filter-trigger:hover {
+    text-decoration: none;
+    background-color: rgba(220, 220, 220, 0.73);
+    display: inline-block;
+    opacity: 1.00;
+    box-shadow: 0px 0px 5px rgba(220, 220, 220, 0.9);
+  }
+}
