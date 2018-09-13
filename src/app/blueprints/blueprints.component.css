@@ -2,7 +2,7 @@
   margin-right: 5px;
 }
 
-.cd-filter-trigger {
+.filter-trigger {
   /*position: absolute;*/
   top: 0;
   left: 0;
@@ -14,12 +14,12 @@
   text-indent: 100%;
   color: transparent;
   white-space: nowrap;
-  background: transparent url("https://entrusters.com/templates/yoo_moustache/html/com_entrusters_shop/products/ui-img/cd-icon-filter.svg") no-repeat center center;
+  background: transparent url("../../assets/images/filter-icon.svg") no-repeat center center;
   z-index: 3;
 }
 
 @media only screen and (min-width: 1170px) {
-  .cd-filter-trigger {
+  .filter-trigger {
     width: auto;
     left: 2%;
     text-indent: 0;
@@ -33,7 +33,7 @@
     font-weight: bold;
   }
 
-  .cd-filter-trigger:hover {
+  .filter-trigger:hover {
     text-decoration: none;
   }
 }
