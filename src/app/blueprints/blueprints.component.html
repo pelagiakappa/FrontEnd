@@ -8,13 +8,9 @@
           <span class="glyphicon glyphicon-th-list"></span>List</a>
       </div>
     </h2>
-    <br>
-    <p>To refine your search
-      <a title="Refine"
-         [routerLink]="['/filters', category]">click here</a>.
-      <a class="cd-filter-trigger pull-right" title="Refine"
-         [routerLink]="['/filters', category]">REFINE</a>
-    </p>
+    <i class="fa fa-sliders"></i>
+    <a class="cd-filter-trigger" title="Filter"
+       [routerLink]="['/filters', category]">Filter</a>
     <div id="products" class="row list-group">
       <app-blueprint *ngFor="let blueprint of pagedBlueprints"
                      [blueprint]="blueprint.name"></app-blueprint>

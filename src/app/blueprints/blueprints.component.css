@@ -30,13 +30,10 @@
     -webkit-transition: color 0.3s;
     -moz-transition: color 0.3s;
     transition: color 0.3s;
+    font-weight: bold;
   }
 
   .cd-filter-trigger:hover {
     text-decoration: none;
-    background-color: rgba(220, 220, 220, 0.73);
-    display: inline-block;
-    opacity: 1.00;
-    box-shadow: 0px 0px 5px rgba(220, 220, 220, 0.9);
   }
 }
