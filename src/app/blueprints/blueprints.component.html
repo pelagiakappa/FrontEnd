@@ -8,7 +8,7 @@
           <span class="glyphicon glyphicon-th-list"></span>List</a>
       </div>
     </h2>
-    <a class="filter-trigger" title="Filter"
+    <a class="filter-trigger pull-right" title="Filter"
        [routerLink]="['/filters', category]">Filter</a>
     <div id="products" class="row list-group">
       <app-blueprint *ngFor="let blueprint of pagedBlueprints"

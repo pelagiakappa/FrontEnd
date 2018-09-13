@@ -2,12 +2,16 @@
   margin-right: 5px;
 }
 
+#products {
+  margin-top: 40px;
+}
+
 .filter-trigger {
   /*position: absolute;*/
   top: 0;
   left: 0;
-  height: 30px;
-  line-height: 30px;
+  height: 20px;
+  line-height: 20px;
   width: 60px;
   /* image replacement */
   overflow: hidden;
